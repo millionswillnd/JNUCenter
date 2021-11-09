@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/splash_entire_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity">
+
+    <TextView
+        android:id="@+id/splash_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JNU Center"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="#2ECC71"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text_guide"
+        app:layout_constraintVertical_bias="0.95"
+        ></TextView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/text_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <TextView
+        android:id="@+id/splash_sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="실속적이고 신속한 전남대 정보 어플"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/splash_title"
+        app:layout_constraintBottom_toTopOf="@id/image_guide_upper"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        ></TextView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/image_guide_upper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.38"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/image_guide_left_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.18"
+        ></androidx.constraintlayout.widget.Guideline>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/image_guide_right_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.84"
+        ></androidx.constraintlayout.widget.Guideline>
+
+
+
+    <ImageView
+        android:id="@+id/splash_jnu_mark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_jnu_mark"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintTop_toBottomOf="@id/image_guide_upper"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/image_guide_left_vertical"
+        app:layout_constraintEnd_toEndOf="@id/image_guide_right_vertical"
+        ></ImageView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

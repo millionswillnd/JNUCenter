@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/frag_one_const"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+        android:id="@+id/customview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:custom_text="알람 설정"
+        app:custom_icon="@drawable/main_icon_alarm"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/customview4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBaseline_toBaselineOf="@id/customview2"
+        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+
+
+    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+        android:id="@+id/customview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:custom_text="강의 기한"
+        app:custom_icon="@drawable/main_icon_calendar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0"
+        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+
+    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+        android:id="@+id/customview3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:custom_text="오늘의 학식"
+        app:custom_icon="@drawable/main_icon_food"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0"
+        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+
+
+    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+        android:id="@+id/customview4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:custom_text="건물 찾기"
+        app:layout_constraintTop_toBottomOf="@id/customview1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+
+
+    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+        android:id="@+id/customview5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:custom_icon="@drawable/main_icon_board"
+        app:custom_text="모임/알뜰장터"
+        app:layout_constraintTop_toBottomOf="@id/customview2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+
+    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+        android:id="@+id/customview6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:custom_text="수업 녹음"
+        app:custom_icon="@drawable/main_icon_mic"
+        app:layout_constraintTop_toBottomOf="@id/customview3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

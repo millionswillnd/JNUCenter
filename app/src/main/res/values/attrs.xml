@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 메인액티비티 아이콘 커스텀뷰 속성 -->
+    <declare-styleable name="CustomIconTitle">
+        <attr name="custom_text" format="reference|string"></attr>
+        <attr name="custom_icon" format="reference|integer"></attr>
+    </declare-styleable>
+
+
+    <!-- 메인액티비티 뉴스 커스텀뷰 속성 -->
+    <declare-styleable name="CustomNewsTitle">
+        <attr name="title" format="reference|string"></attr>
+    </declare-styleable>
+
+</resources>
+
+
