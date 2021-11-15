@@ -4,28 +4,62 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.example.jnucenter.R
 import com.example.jnucenter.databinding.ActivityMainBinding
 import com.example.jnucenter.mvvm.feature.number.NumberActivity
+import com.example.jnucenter.mvvm.utils.WeatherUtil
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.initialization.InitializationStatus
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityMainBinding
     private var adRequest : AdRequest? = null
     lateinit var viewPager : ViewPager2
+    lateinit var viewModel : MainViewModel
+    lateinit var weather_util : WeatherUtil
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+
+        // 뷰모델 초기화
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        binding.viewmodel = viewModel
+        binding.lifecycleOwner = this
+
+        CoroutineScope(Dispatchers.IO).launch {
+            // 날씨 정보 신청
+            viewModel.getWeathers()
+            viewModel.getDate()
+            viewModel.getWeatherIconInfo()
+        }
+
+        // 날씨 아이콘 세팅
+        weather_util = WeatherUtil()
+        viewModel.weather_icon_info.observe(this, Observer {
+            Log.d("확인", "${it}")
+            binding.mainWeatherImage.setImageDrawable(ContextCompat
+                .getDrawable(this, weather_util.getWeatherIcon(it, this)))
+        })
+
+
+
+
 
         // 구글애드몹
         MobileAds.initialize(this, object: OnInitializationCompleteListener{

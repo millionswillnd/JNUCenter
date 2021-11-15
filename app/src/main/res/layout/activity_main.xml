@@ -4,7 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".mvvm.feature.main.MainActivity"
     >
+
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.jnucenter.mvvm.feature.main.MainViewModel" />
+    </data>
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -177,7 +185,7 @@
             android:id="@+id/main_weather_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9/24 토"
+            android:text="@={viewmodel.now_date}"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="35sp"
@@ -192,7 +200,7 @@
             android:id="@+id/main_weather_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="27도"
+            android:text="@={viewmodel.weather_temperature}"
             android:textStyle="bold"
             android:textSize="35sp"
             android:textColor="@color/skyblue"
@@ -205,7 +213,7 @@
             android:id="@+id/main_weather_temp2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="맑음"
+            android:text="@={viewmodel.weather_description}"
             android:textColor="@color/main_color_green"
             android:textSize="20sp"
             android:textStyle="bold"
