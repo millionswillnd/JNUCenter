@@ -13,6 +13,7 @@ import com.example.jnucenter.R
 class CustomNewsTitle : ConstraintLayout {
 
     var title : TextView? = null
+    var more : TextView? = null
 
     constructor(context: Context) : super(context){
         initView()
@@ -36,6 +37,8 @@ class CustomNewsTitle : ConstraintLayout {
         addView(view)
 
         title = findViewById(R.id.custom_news_title) as TextView
+        more = findViewById(R.id.custom_news_more) as TextView
+        
     }
 
     private fun getAttrs(attrs: AttributeSet){
@@ -58,6 +61,9 @@ class CustomNewsTitle : ConstraintLayout {
         // Title SET
         val title_resId = typedArray.getString(R.styleable.CustomNewsTitle_title)
         title?.setText(title_resId)
+
+        // URL SET
+        val url_resId = typedArray.getString(R.styleable.CustomNewsTitle_url)
 
         typedArray.recycle()
     }

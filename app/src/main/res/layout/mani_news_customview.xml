@@ -12,10 +12,10 @@
         android:textSize="13sp"
         android:textStyle="bold"
         android:textColor="@color/black"
+        android:clickable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-
         ></TextView>
 
     <TextView
@@ -25,6 +25,7 @@
         android:text="..더 보기"
         android:textSize="10sp"
         android:textColor="@color/black"
+        android:clickable="true"
         android:layout_marginStart="10dp"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toEndOf="@id/custom_news_title"

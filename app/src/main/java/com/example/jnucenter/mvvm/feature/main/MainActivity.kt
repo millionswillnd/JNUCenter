@@ -2,6 +2,7 @@ package com.example.jnucenter.mvvm.feature.main
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewPager : ViewPager2
     lateinit var viewModel : MainViewModel
     lateinit var weather_util : WeatherUtil
+    private var view_title_list : List<CustomNewsTitle>? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,11 +44,23 @@ class MainActivity : AppCompatActivity() {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
 
+        // 신문 title과 url을 담기위한 xml상의 view들 담기
+        view_title_list = listOf<CustomNewsTitle>(
+            binding.mainNewsTitle1,
+            binding.mainNewsTitle2,
+            binding.mainNewsTitle3,
+            binding.mainNewsTitle4,
+            binding.mainNewsTitle5,
+            binding.mainNewsTitle6
+        )
+
         // 날씨 서버 통신
         CoroutineScope(Dispatchers.IO).launch {
             // 날씨 정보 신청
             viewModel.getWeathers()
             viewModel.getDate()
+            // 신문 정보 신청
+            viewModel.getNewsList()
         }
 
         // 날씨 아이콘 정보 세팅
@@ -72,6 +86,26 @@ class MainActivity : AppCompatActivity() {
             binding.maniWeatherCloth.text = viewModel.recommand_wear.value
         })
 
+
+        // 신문 title, url 세팅
+        viewModel.news_map.observe(this, Observer{
+            var i = 0;
+
+            for ((news_title,news_url) in it){
+                val list_unit = view_title_list?.get(i)
+
+                list_unit?.title?.text = news_title
+                list_unit?.setOnClickListener {
+                    val intent = Intent()
+                    intent.setAction(Intent.ACTION_VIEW)
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE)
+                    intent.setData(Uri.parse(news_url))
+                    startActivity(intent)
+                }
+
+                i++
+            }
+        })
 
         // 구글애드몹
         MobileAds.initialize(this, object: OnInitializationCompleteListener{
@@ -139,10 +173,19 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    override fun onStop() {
+        super.onStop()
+
+        // 메모리 해제
+        adRequest = null
+        view_title_list = null
+    }
+
     override fun onDestroy() {
         super.onDestroy()
 
         // 메모리 해제
-        adRequest = null
+        if(adRequest != null) adRequest = null
+        if(view_title_list != null) view_title_list = null
     }
 }

@@ -27,6 +27,10 @@ class MainViewModel : ViewModel() {
     val recommand_wear : MutableLiveData<String>
             get() = repository.recommand_wear
 
+    // 뉴스 title, url을 담은 map 객체
+    val news_map : MutableLiveData<LinkedHashMap<String, String>>
+            get() = repository.news_list
+
 
     // 날씨 정보값 요청
     fun getWeathers() {
@@ -50,6 +54,11 @@ class MainViewModel : ViewModel() {
     // 온도에 따른 추천 옷 정보 요청
     fun getRecommendedWear(){
         repository.getRecommendedWear()
+    }
+
+    // 신문 title, url 정보 요청
+    fun getNewsList(){
+        repository.getNews()
     }
 
 }

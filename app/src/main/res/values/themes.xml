@@ -14,6 +14,8 @@
         <!-- 타이틀, 액션바 제거 -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!-- 폰트 -->
+        <item name="fontFamily">@font/goyangfont</item>
 
     </style>
 </resources>

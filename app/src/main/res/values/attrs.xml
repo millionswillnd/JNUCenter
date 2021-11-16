@@ -11,6 +11,7 @@
     <!-- 메인액티비티 뉴스 커스텀뷰 속성 -->
     <declare-styleable name="CustomNewsTitle">
         <attr name="title" format="reference|string"></attr>
+        <attr name="url" format="reference|string"></attr>
     </declare-styleable>
 
 </resources>
