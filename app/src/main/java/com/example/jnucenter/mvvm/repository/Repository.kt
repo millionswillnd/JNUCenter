@@ -16,13 +16,17 @@ class Repository {
 
     // 날씨 정보
     val weather_description : MutableLiveData<String> = MutableLiveData("none")
-    val weather_temperature : MutableLiveData<String> = MutableLiveData("0")
+    val weather_temperature : MutableLiveData<String> = MutableLiveData("-")
 
     // 현재 날짜
     val now_date : MutableLiveData<String> = MutableLiveData("0")
 
     // 날씨 아이콘 정보
     val weather_icon_info : MutableLiveData<String> = MutableLiveData("0")
+
+    // 온도에 따른 옷 추천
+    val recommand_wear : MutableLiveData<String> = MutableLiveData("none")
+
 
 
 
@@ -56,5 +60,11 @@ class Repository {
     fun getWeatherIconInfo(){
         val icon_info = weather_util.getWeatherIconInfo(weather_description.value!!)
         weather_icon_info.postValue(icon_info)
+    }
+
+    // 온도에 따른 추천 옷 구하기
+    fun getRecommendedWear(){
+        val rec_wear = weather_util.getRecommendedWear(weather_temperature.value!!)
+        recommand_wear.postValue(rec_wear)
     }
 }

@@ -23,6 +23,9 @@ class MainViewModel : ViewModel() {
     val weather_icon_info : MutableLiveData<String>
             get() = repository.weather_icon_info
 
+    // 온도에 따른 추천 옷
+    val recommand_wear : MutableLiveData<String>
+            get() = repository.recommand_wear
 
 
     // 날씨 정보값 요청
@@ -42,6 +45,11 @@ class MainViewModel : ViewModel() {
     // 날씨 아이콘 정보 요청
     fun getWeatherIconInfo(){
         repository.getWeatherIconInfo()
+    }
+
+    // 온도에 따른 추천 옷 정보 요청
+    fun getRecommendedWear(){
+        repository.getRecommendedWear()
     }
 
 }

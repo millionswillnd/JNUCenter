@@ -251,7 +251,7 @@
             android:id="@+id/mani_weather_cloth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="오늘은 반팔 반바지 입고 가기!"
+            android:text="@={viewmodel.recommand_wear}"
             android:textSize="15sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/main_weather_title"

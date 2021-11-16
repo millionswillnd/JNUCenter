@@ -42,23 +42,35 @@ class MainActivity : AppCompatActivity() {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
 
+        // 날씨 서버 통신
         CoroutineScope(Dispatchers.IO).launch {
             // 날씨 정보 신청
             viewModel.getWeathers()
             viewModel.getDate()
-            viewModel.getWeatherIconInfo()
         }
+
+        // 날씨 아이콘 정보 세팅
+        viewModel.weather_description.observe(this, Observer {
+            CoroutineScope(Dispatchers.IO).launch {
+                viewModel.getWeatherIconInfo()
+            }
+        })
 
         // 날씨 아이콘 세팅
         weather_util = WeatherUtil()
         viewModel.weather_icon_info.observe(this, Observer {
-            Log.d("확인", "${it}")
             binding.mainWeatherImage.setImageDrawable(ContextCompat
                 .getDrawable(this, weather_util.getWeatherIcon(it, this)))
         })
 
 
-
+        // 온도에 따른 추천 옷 세팅
+        viewModel.weather_temperature.observe(this, Observer {
+            CoroutineScope(Dispatchers.IO).launch {
+                viewModel.getRecommendedWear()
+            }
+            binding.maniWeatherCloth.text = viewModel.recommand_wear.value
+        })
 
 
         // 구글애드몹
