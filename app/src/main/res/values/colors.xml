@@ -13,4 +13,5 @@
     <color name="main_color_green">#2ECC71</color>
     <color name="main_icon_color_green_bold">#39802c</color>
     <color name="skyblue">#81D4FA</color>
+    <color name="main_view_color_mint">#CFFFE5</color>
 </resources>

@@ -30,6 +30,7 @@ class SplashActivity : AppCompatActivity() {
         handler?.postDelayed(object : Runnable{
             override fun run() {
                 val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(intent)
             }
         }, 2500)

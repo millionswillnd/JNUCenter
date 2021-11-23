@@ -65,8 +65,8 @@ dependencies {
     // http logging intercepter
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.2"
 
-    //Retrofit-RxKotlin
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+    // Paging+rx
+    implementation "androidx.paging:paging-runtime:3.0.1"
+    implementation "androidx.paging:paging-rxjava2:3.0.1"
 
 }

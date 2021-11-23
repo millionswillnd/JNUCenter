@@ -13,7 +13,7 @@ class RetrofitClient {
 
         private var instance : Retrofit? = null
         // 추후 실제 서버 base url로 수정
-        private const val BASE_URL = "http://172.30.1.49:8080"
+        private const val BASE_URL = "http://172.30.1.37:8080"
 
         // 로깅용 인터셉터
         val interceptor = HttpLoggingInterceptor().apply{

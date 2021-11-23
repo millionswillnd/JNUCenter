@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // 구글애드몹
+        // 구글애드몹 세팅
         MobileAds.initialize(this, object: OnInitializationCompleteListener{
             override fun onInitializationComplete(p0: InitializationStatus) {
             }
