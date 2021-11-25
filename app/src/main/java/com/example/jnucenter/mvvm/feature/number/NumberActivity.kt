@@ -7,9 +7,13 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,8 +36,10 @@ class NumberActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_number)
+
         // 뷰모델 초기화
         number_viewmodel = ViewModelProvider(this).get(NumberViewModel::class.java)
+
         // 리사이클러뷰, 페이징 초기화
         adapter = NumberAdapter(this)
         binding.numberRecyclerview.adapter = adapter
@@ -45,6 +51,30 @@ class NumberActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // 검색 필터 리스너
+        binding.numberSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            // 텍스트가 바뀔 때 마다 adpater를 갱신
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                lifecycleScope.launch {
+                    number_viewmodel.getNumbersBySearch(newText!!).collectLatest {
+                        adapter.submitData(it)
+                    }
+                }
+                return true
+            }
+
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // 포커스를 해제한다
+                binding.numberSearchView.clearFocus()
+                return true
+            }
+        })
+
+
+
+        // 뷰모델에 전화번호 리스트를 요청하고 어댑터에 제공한다(페이징)
         CoroutineScope(Dispatchers.IO).launch {
             number_viewmodel.getNumbers().collectLatest {
                 adapter.submitData(it)

@@ -6,9 +6,17 @@ import retrofit2.http.Query
 
 interface NumberApi {
 
-    // 학내 모든 전화번호 리퀘스트
+    // 학내 모든 전화번호 리퀘스트, 페이징 적용 o
     @GET("/numbers")
     fun requestNumbers(
+        @Query("page_index") page_index : Int
+    ) : Call<List<NumbersDTO>>
+
+
+    // 특정 부서명 검색어에 의한 전화번호 리퀘스트
+    @GET("/numbers/search")
+    fun reqeustNumbersBySearch(
+        @Query("search_name") search_name : String,
         @Query("page_index") page_index : Int
     ) : Call<List<NumbersDTO>>
 }

@@ -1,19 +1,11 @@
 package com.example.jnucenter.mvvm.feature.number
 
-import android.Manifest
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -23,7 +15,9 @@ import com.example.jnucenter.databinding.NumberRecyclerviewItemBinding
 import com.example.jnucenter.mvvm.repository.network.retrofit.numbers.NumbersDTO
 import java.security.Permission
 
-class NumberAdapter(val context: Context) : PagingDataAdapter<NumbersDTO, NumberAdapter.NumberViewHolder>(DIFF_UTIL){
+class NumberAdapter(val context: Context)
+    : PagingDataAdapter<NumbersDTO, NumberAdapter.NumberViewHolder>(DIFF_UTIL){
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumberViewHolder {
         return NumberViewHolder(
@@ -41,6 +35,7 @@ class NumberAdapter(val context: Context) : PagingDataAdapter<NumbersDTO, Number
             holder.bind(it)
         }
     }
+
 
     inner class NumberViewHolder(
         private val binding : NumberRecyclerviewItemBinding

@@ -1,5 +1,6 @@
 package com.example.jnucenter.mvvm.feature.number
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -16,9 +17,18 @@ class NumberViewModel() : ViewModel() {
 
     private val number_repository = NumberRepository(NumberService())
 
-    suspend fun getNumbers(): Flow<PagingData<NumbersDTO>>{
+    val number_list : MutableLiveData<List<NumbersDTO>>
+        get() = number_repository.search_number_list
 
+    // 전화번호 리스트
+    suspend fun getNumbers(): Flow<PagingData<NumbersDTO>>{
         return number_repository.getNumberItemsByPaging()
+            .cachedIn(viewModelScope)
+    }
+
+    // 검색 부서명 포함 전화번호 리스트
+    suspend fun getNumbersBySearch(search_name : String): Flow<PagingData<NumbersDTO>>{
+        return number_repository.getNumbersBySearch(search_name)
             .cachedIn(viewModelScope)
     }
 

@@ -13,6 +13,7 @@ class NumberService{
 
     private val retrofit_client = RetrofitClient
 
+
     suspend fun getNumbers(page_index : Int) : List<NumbersDTO>? {
         val client : Retrofit = retrofit_client.getInstance()
         var numbers : List<NumbersDTO>? = null
@@ -21,8 +22,20 @@ class NumberService{
         withContext(Dispatchers.IO){
                 numbers = response.execute().body()
             }
-
         return numbers
     }
 
+    // 검색어 서치
+    suspend fun getNumbersBySearch(search_name : String, page_index: Int) : List<NumbersDTO>? {
+        val client = retrofit_client.getInstance()
+        var numbers : List<NumbersDTO>? = null
+        val response : Call<List<NumbersDTO>>
+            = client.create(NumberApi::class.java).reqeustNumbersBySearch(search_name, page_index)
+
+        withContext(Dispatchers.IO){
+            numbers = response.execute().body()
+        }
+
+        return numbers
+    }
 }

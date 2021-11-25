@@ -20,14 +20,23 @@ import retrofit2.Retrofit
 
 class NumberRepository(private val number_service: NumberService) {
 
-    // 전화번호 리스트
-    val number_list : MutableLiveData<List<NumbersDTO>> = MutableLiveData()
+    // 검색된 전화번호 리스트
+    val search_number_list : MutableLiveData<List<NumbersDTO>> = MutableLiveData()
 
 
+    // 전체 전화번호 리스트
     fun getNumberItemsByPaging() : Flow<PagingData<NumbersDTO>> {
         return Pager(
             config = PagingConfig(pageSize = 12),
-            pagingSourceFactory = { NumberPagingSource(number_service) }
+            pagingSourceFactory = { NumberPagingSource(number_service,"", "false") }
+        ).flow
+    }
+
+    // 특정 검색어 포함 전화번호 리스트
+    fun getNumbersBySearch(search_name: String) : Flow<PagingData<NumbersDTO>>{
+        return Pager(
+            config = PagingConfig(pageSize = 12),
+            pagingSourceFactory = {NumberPagingSource(number_service, search_name, "true")}
         ).flow
     }
 
