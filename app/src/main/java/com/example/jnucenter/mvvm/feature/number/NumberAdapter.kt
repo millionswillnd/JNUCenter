@@ -3,6 +3,7 @@ package com.example.jnucenter.mvvm.feature.number
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +23,7 @@ class NumberAdapter(val context: Context, val textUtils: TextUtils)
 
     // 초성, 초깃값에 의미는 없다
     var first_consonant: Char = 'n'
-    // 코틀린은 char에 숫자가 안되기에 a를 초기점으로 지정
+    // 이전 아이템의 초성
     var before_consonant: Char = 'a'
     var before_item : NumbersDTO? = null
 
@@ -63,6 +64,7 @@ class NumberAdapter(val context: Context, val textUtils: TextUtils)
             // 이전 아이템의 초성과 일치하지 않거나, 시작 아이템인경우 자음 섹션을 추가
             if((first_consonant != before_consonant) || (layoutPosition == 0)){
                 binding.consonantConst.visibility = View.VISIBLE
+                Log.d("초성", "${item.consonant}")
                 binding.consonant.text = item.consonant
                 before_consonant = first_consonant
             } else binding.consonantConst.visibility = View.GONE

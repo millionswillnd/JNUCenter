@@ -25,6 +25,7 @@
         <!-- NumberActivity -->
         <activity android:name=".mvvm.feature.number.NumberActivity"
             android:exported="true"
+            android:windowSoftInputMode="adjustNothing"
             ></activity>
 
         <!-- SplashActivity -->
