@@ -21,6 +21,7 @@ import com.example.jnucenter.R
 import com.example.jnucenter.databinding.ActivityNumberBinding
 import com.example.jnucenter.mvvm.feature.main.MainActivity
 import com.example.jnucenter.mvvm.repository.NumberRepository
+import com.example.jnucenter.mvvm.utils.TextUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -32,6 +33,7 @@ class NumberActivity : AppCompatActivity() {
     lateinit var binding : ActivityNumberBinding
     lateinit var adapter: NumberAdapter
     lateinit var number_viewmodel : NumberViewModel
+    lateinit var text_utils : TextUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +42,11 @@ class NumberActivity : AppCompatActivity() {
         // 뷰모델 초기화
         number_viewmodel = ViewModelProvider(this).get(NumberViewModel::class.java)
 
+        // 유틸 클래스 초기화
+        text_utils = TextUtils()
+
         // 리사이클러뷰, 페이징 초기화
-        adapter = NumberAdapter(this)
+        adapter = NumberAdapter(this, text_utils)
         binding.numberRecyclerview.adapter = adapter
         binding.numberRecyclerview.layoutManager = LinearLayoutManager(this)
 

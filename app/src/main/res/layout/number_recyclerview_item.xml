@@ -97,6 +97,16 @@
             app:layout_constraintHorizontal_bias="0.95"
             ></TextView>
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:orientation="horizontal"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            ></View>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
