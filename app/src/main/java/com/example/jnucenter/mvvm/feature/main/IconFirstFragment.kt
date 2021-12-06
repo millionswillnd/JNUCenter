@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.jnucenter.R
 import com.example.jnucenter.SplashActivity
 import com.example.jnucenter.databinding.MainIconFragOneBinding
+import com.example.jnucenter.mvvm.feature.lecture.LectureDateActivity
 
 class IconFirstFragment : Fragment(), View.OnClickListener {
 
@@ -56,7 +57,8 @@ class IconFirstFragment : Fragment(), View.OnClickListener {
 
             // 강의기한
             R.id.customview2 -> {
-                Toast.makeText(mainContext, "터치이벤트 입니다", Toast.LENGTH_LONG).show()
+                val intent = Intent(mainContext, LectureDateActivity::class.java)
+                startActivity(intent)
             }
 
             // 오늘의 학식

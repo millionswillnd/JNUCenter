@@ -1,47 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jnucenter">
-
-
     <!-- 퍼미션 -->
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
-
-    <!-- 애플리케이션 -->
     <application
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JNUCenter"
-        >
+        android:usesCleartextTraffic="true">
+        <activity android:name=".mvvm.feature.lecture.LectureDateActivity"></activity>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3958688591357712~6987190618" />
-        <!-- NumberActivity -->
-        <activity android:name=".mvvm.feature.number.NumberActivity"
+            android:value="ca-app-pub-3958688591357712~6987190618" /> <!-- NumberActivity -->
+        <activity
+            android:name=".mvvm.feature.number.NumberActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustNothing"
-            ></activity>
-
-        <!-- SplashActivity -->
+            android:windowSoftInputMode="adjustNothing" /> <!-- SplashActivity -->
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- MainActivity -->
+        </activity> <!-- MainActivity -->
         <activity
             android:name=".mvvm.feature.main.MainActivity"
             android:windowSoftInputMode="adjustNothing" />
-
     </application>
 
 </manifest>

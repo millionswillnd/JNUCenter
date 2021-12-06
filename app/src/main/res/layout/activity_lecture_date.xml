@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mvvm.feature.lecture.LectureDateActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lecture_left_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lecture_right_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <com.example.jnucenter.mvvm.feature.lecture.CustomLectureDate
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:lecture_title = "광고매체의 전략과 기획 수립 [3]"
+        app:lecture_date = "D-3"
+        app:back_color="@color/lecture_custom_bright_green"
+        app:layout_constraintStart_toStartOf="@id/lecture_left_guide"
+        app:layout_constraintEnd_toEndOf="@id/lecture_right_guide"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        ></com.example.jnucenter.mvvm.feature.lecture.CustomLectureDate>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

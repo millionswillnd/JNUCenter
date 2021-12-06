@@ -13,7 +13,7 @@ interface NumberApi {
     ) : Call<List<NumbersDTO>>
 
 
-    // 특정 부서명 검색어에 의한 전화번호 리퀘스트
+    // 특정 부서명 검색어에 의한 전화번호 리퀘스트, 페이징 적용 o
     @GET("/numbers/search")
     fun reqeustNumbersBySearch(
         @Query("search_name") search_name : String,

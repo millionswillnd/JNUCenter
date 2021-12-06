@@ -14,6 +14,14 @@
         <attr name="url" format="reference|string"></attr>
     </declare-styleable>
 
+
+    <!-- Lecture Date Activity 커스텀뷰 속성 -->
+    <declare-styleable name="CustomLectureDate">
+        <attr name="back_color" format="reference|integer"></attr>
+        <attr name="lecture_title" format="reference|string"></attr>
+        <attr name="lecture_date" format="reference|string"></attr>
+    </declare-styleable>
+
 </resources>
 
 

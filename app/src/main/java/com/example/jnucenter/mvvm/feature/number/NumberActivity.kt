@@ -61,7 +61,7 @@ class NumberActivity : AppCompatActivity() {
             // 텍스트가 바뀔 때 마다 adpater를 갱신
             override fun onQueryTextChange(newText: String?): Boolean {
 
-                lifecycleScope.launch {
+                lifecycleScope.launch(Dispatchers.IO) {
                     number_viewmodel.getNumbersBySearch(newText!!).collectLatest {
                         adapter.submitData(it)
                     }
