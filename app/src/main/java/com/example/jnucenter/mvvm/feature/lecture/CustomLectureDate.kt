@@ -68,5 +68,16 @@ class CustomLectureDate : ConstraintLayout {
         layout?.setBackgroundColor(color_resId)
     }
 
+    fun setTitle(lecture_title : String){
+        title?.setText(lecture_title)
+    }
+
+    fun setDate(lecture_date : String){
+        date?.setText(lecture_date)
+    }
+
+    fun setBackColor(color : Int){
+        layout?.setBackgroundColor(color)
+    }
 
 }

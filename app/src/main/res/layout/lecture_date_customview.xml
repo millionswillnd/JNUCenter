@@ -27,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="23sp"
+            android:textSize="20sp"
             android:text="광고매체의 전략과 수립 [2]"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/front_guide"
