@@ -21,8 +21,8 @@ class LectureDateActivity : AppCompatActivity() {
     lateinit var binding : ActivityLectureDateBinding
     lateinit var adapter : LectureAdapter
     lateinit var lecture_viewModel: LectureDateViewModel
-    lateinit var lecture_util : LectureUtil
-    lateinit var lecture_list : List<LectureDTO>
+    var lecture_util : LectureUtil? = null
+    var lecture_list : List<LectureDTO>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,15 +39,36 @@ class LectureDateActivity : AppCompatActivity() {
         lecture_list = runBlocking(Dispatchers.IO) {
             lecture_viewModel.getLectureDates()!!
         }
-        adapter = LectureAdapter(lecture_util , lecture_list, this)
+        adapter = LectureAdapter(lecture_util!! , lecture_list!!, this)
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(this)
 
 
         // 백버튼 리스너
         binding.lectureBackButton.setOnClickListener {
-            val inetnt = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
+
+    override fun onRestart() {
+        super.onRestart()
+        lecture_util = LectureUtil()
+        lecture_list = runBlocking(Dispatchers.IO) {
+            lecture_viewModel.getLectureDates()!!
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        lecture_util = null
+        lecture_list = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (lecture_util != null) lecture_util = null
+        if (lecture_list != null) lecture_list = null
+    }
+
 }

@@ -16,8 +16,8 @@ import com.example.jnucenter.mvvm.feature.lecture.LectureDateActivity
 
 class IconFirstFragment : Fragment(), View.OnClickListener {
 
-    lateinit var binding : MainIconFragOneBinding
-    lateinit var mainContext : Context
+    var binding : MainIconFragOneBinding? = null
+    var mainContext : Context? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -32,16 +32,19 @@ class IconFirstFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // 데이터바인딩
-        binding = DataBindingUtil.inflate(inflater, R.layout.main_icon_frag_one, container, false)
-        val root : View? = binding.root
+        if (binding == null) binding = DataBindingUtil
+            .inflate(inflater, R.layout.main_icon_frag_one, container, false)
+        val root : View? = binding?.root
+
+        if(mainContext == null) mainContext = context
 
         // 클릭리스너 세팅
-        binding.customview1.setOnClickListener(this)
-        binding.customview2.setOnClickListener(this)
-        binding.customview3.setOnClickListener(this)
-        binding.customview4.setOnClickListener(this)
-        binding.customview5.setOnClickListener(this)
-        binding.customview6.setOnClickListener(this)
+        binding!!.customview1.setOnClickListener(this)
+        binding!!.customview2.setOnClickListener(this)
+        binding!!.customview3.setOnClickListener(this)
+        binding!!.customview4.setOnClickListener(this)
+        binding!!.customview5.setOnClickListener(this)
+        binding!!.customview6.setOnClickListener(this)
 
 
         return root
@@ -81,5 +84,12 @@ class IconFirstFragment : Fragment(), View.OnClickListener {
                 Toast.makeText(mainContext, "터치이벤트 입니다", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        mainContext = null
+        binding = null
     }
 }

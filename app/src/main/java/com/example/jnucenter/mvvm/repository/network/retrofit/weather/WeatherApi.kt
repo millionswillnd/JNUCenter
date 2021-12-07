@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface WeatherApi {
 
     // 날씨 정보를 서버에서 얻어온다
-    @GET("/weather/now")
+    @GET("/weather")
     fun requestWeatherInfo() : Call<WeatherDTO>
 }

@@ -33,7 +33,7 @@ class NumberActivity : AppCompatActivity() {
     lateinit var binding : ActivityNumberBinding
     lateinit var adapter: NumberAdapter
     lateinit var number_viewmodel : NumberViewModel
-    lateinit var text_utils : TextUtils
+    var text_utils : TextUtils? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,7 @@ class NumberActivity : AppCompatActivity() {
         text_utils = TextUtils()
 
         // 리사이클러뷰, 페이징 초기화
-        adapter = NumberAdapter(this, text_utils)
+        adapter = NumberAdapter(this, text_utils!!)
         binding.numberRecyclerview.adapter = adapter
         binding.numberRecyclerview.layoutManager = LinearLayoutManager(this)
 
@@ -85,6 +85,24 @@ class NumberActivity : AppCompatActivity() {
                 adapter.submitData(it)
             }
         }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+
+        text_utils = TextUtils()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        text_utils = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        if (text_utils != null) text_utils = null
     }
 
 }

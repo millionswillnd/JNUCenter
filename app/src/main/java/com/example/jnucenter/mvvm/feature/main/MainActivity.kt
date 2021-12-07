@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     private var adRequest : AdRequest? = null
     lateinit var viewPager : ViewPager2
     lateinit var viewModel : MainViewModel
-    lateinit var weather_util : WeatherUtil
+    var weather_util : WeatherUtil? = null
     private var view_title_list : List<CustomNewsTitle>? = null
 
 
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         weather_util = WeatherUtil()
         viewModel.weather_icon_info.observe(this, Observer {
             binding.mainWeatherImage.setImageDrawable(ContextCompat
-                .getDrawable(this, weather_util.getWeatherIcon(it, this)))
+                .getDrawable(this, weather_util!!.getWeatherIcon(it, this)))
         })
 
 
@@ -173,19 +173,35 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+
+    override fun onRestart() {
+        super.onRestart()
+
+        adRequest = AdRequest.Builder().build()
+        view_title_list = listOf<CustomNewsTitle>(
+            binding.mainNewsTitle1,
+            binding.mainNewsTitle2,
+            binding.mainNewsTitle3,
+            binding.mainNewsTitle4,
+            binding.mainNewsTitle5,
+            binding.mainNewsTitle6
+        )
+        weather_util = WeatherUtil()
+    }
+
     override fun onStop() {
         super.onStop()
 
-        // 메모리 해제
         adRequest = null
         view_title_list = null
+        weather_util = null
     }
 
     override fun onDestroy() {
         super.onDestroy()
 
-        // 메모리 해제
         if(adRequest != null) adRequest = null
         if(view_title_list != null) view_title_list = null
+        if(weather_util != null) weather_util = null
     }
 }
