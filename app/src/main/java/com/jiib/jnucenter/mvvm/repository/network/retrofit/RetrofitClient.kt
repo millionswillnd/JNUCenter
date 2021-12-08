@@ -1,5 +1,6 @@
 package com.jiib.jnucenter.mvvm.repository.network.retrofit
 
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,12 +26,14 @@ class RetrofitClient {
             .writeTimeout(15, TimeUnit.SECONDS)
             .build()
 
+        var gson = GsonBuilder().setLenient().create()
+
         fun getInstance() : Retrofit {
             if(instance == null){
                 instance = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(okHttpClient)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(gson))
                     .build()
             }
             return instance!!

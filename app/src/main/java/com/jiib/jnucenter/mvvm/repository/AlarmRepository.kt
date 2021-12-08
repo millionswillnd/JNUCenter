@@ -17,7 +17,8 @@ class AlarmRepository {
 
     // 서버에 알람 세팅 정보를 보낸다
     fun setAlarmSettings(lecture_alarm: Int, scholarship_alarm: Int, food_alarm: Int){
-        alarm_service.setAlarmSettings(lecture_alarm, scholarship_alarm, food_alarm)
+        val response = alarm_service.setAlarmSettings(lecture_alarm, scholarship_alarm, food_alarm)
+        response.execute()
     }
 
     // 서버에 저장된 나의 알람 설정 정보를 받아와 LiveData에 set
@@ -30,6 +31,6 @@ class AlarmRepository {
 
     // 서버로 fcm 토큰을 보낸다
     fun postFcmToken(token: String){
-        alarm_service.setFcmToken(token)
+        val response = alarm_service.setFcmToken(token)
     }
 }

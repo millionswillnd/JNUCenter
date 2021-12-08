@@ -184,6 +184,17 @@
         app:layout_constraintTop_toBottomOf="@id/alarm_third_line"
         app:layout_constraintBottom_toTopOf="@id/alarm_fourth_line"
         ></Switch>
-    
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/alarm_progress_bar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:indeterminate="true"
+        style="@style/Widget.AppCompat.ProgressBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        ></androidx.core.widget.ContentLoadingProgressBar>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
