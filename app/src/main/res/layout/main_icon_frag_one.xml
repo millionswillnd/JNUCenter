@@ -9,7 +9,7 @@
     android:layout_height="wrap_content"
     >
 
-    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+    <com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle
         android:id="@+id/customview1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,10 +20,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintBaseline_toBaselineOf="@id/customview2"
-        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+        ></com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle>
 
 
-    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+    <com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle
         android:id="@+id/customview2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,9 +34,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0"
-        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+        ></com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle>
 
-    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+    <com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle
         android:id="@+id/customview3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,10 +46,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0"
-        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+        ></com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle>
 
 
-    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+    <com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle
         android:id="@+id/customview4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,10 +58,10 @@
         app:layout_constraintTop_toBottomOf="@id/customview1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+        ></com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle>
 
 
-    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+    <com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle
         android:id="@+id/customview5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,9 +71,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+        ></com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle>
 
-    <com.example.jnucenter.mvvm.feature.main.CustomIconTitle
+    <com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle
         android:id="@+id/customview6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@id/customview3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        ></com.example.jnucenter.mvvm.feature.main.CustomIconTitle>
+        ></com.jiib.jnucenter.mvvm.feature.main.CustomIconTitle>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

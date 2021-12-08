@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mvvm.feature.alarm.AlarmActivity">
+
+
+    <ImageButton
+        android:id="@+id/alarm_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/number_back_button"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="@id/alarm_left_guide"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/alarm_top_guide"
+        ></ImageButton>
+
+    <TextView
+        android:id="@+id/alarm_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람 설정"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/main_color_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/alarm_top_guide"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/alarm_save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="저장하기"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/alarm_right_guide"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/alarm_top_guide"
+        ></TextView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/alarm_left_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/alarm_right_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/alarm_top_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.09"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <View
+        android:id="@+id/top_line_view"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@color/main_color_green"
+        app:layout_constraintTop_toBottomOf="@id/alarm_top_guide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        ></View>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/alarm_first_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <TextView
+        android:id="@+id/lecture_alarm_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/alarm_left_guide"
+        app:layout_constraintTop_toTopOf="@id/alarm_first_line"
+        app:layout_constraintBottom_toBottomOf="@id/alarm_second_line"
+        android:text="강의 기한 알람"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        ></TextView>
+
+    <Switch
+        android:id="@+id/alarm_lecture_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:track="@drawable/switch_background"
+        android:thumb="@drawable/switch_thumb"
+        app:layout_constraintEnd_toEndOf="@id/alarm_right_guide"
+        app:layout_constraintTop_toBottomOf="@id/alarm_first_line"
+        app:layout_constraintBottom_toTopOf="@id/alarm_second_line"
+        ></Switch>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/alarm_second_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <!-- 모든 가이드는 0.08 간격-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/alarm_third_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.28"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <TextView
+        android:id="@+id/scholarship_alarm_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/alarm_left_guide"
+        app:layout_constraintTop_toTopOf="@id/alarm_second_line"
+        app:layout_constraintBottom_toBottomOf="@id/alarm_third_line"
+        android:text="장학 정보  알람 "
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        ></TextView>
+
+    <Switch
+        android:id="@+id/alarm_scholarship_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:track="@drawable/switch_background"
+        android:thumb="@drawable/switch_thumb"
+        app:layout_constraintEnd_toEndOf="@id/alarm_right_guide"
+        app:layout_constraintTop_toBottomOf="@id/alarm_second_line"
+        app:layout_constraintBottom_toTopOf="@id/alarm_third_line"
+        ></Switch>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/alarm_fourth_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <TextView
+        android:id="@+id/alarm_food_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/alarm_left_guide"
+        app:layout_constraintTop_toTopOf="@id/alarm_third_line"
+        app:layout_constraintBottom_toBottomOf="@id/alarm_fourth_line"
+        android:text="학식 메뉴 알람"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        ></TextView>
+
+    <Switch
+        android:id="@+id/alarm_food_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:track="@drawable/switch_background"
+        android:thumb="@drawable/switch_thumb"
+        app:layout_constraintEnd_toEndOf="@id/alarm_right_guide"
+        app:layout_constraintTop_toBottomOf="@id/alarm_third_line"
+        app:layout_constraintBottom_toTopOf="@id/alarm_fourth_line"
+        ></Switch>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
