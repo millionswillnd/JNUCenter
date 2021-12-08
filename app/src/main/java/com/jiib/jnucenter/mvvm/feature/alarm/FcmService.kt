@@ -2,6 +2,7 @@ package com.jiib.jnucenter.mvvm.feature.alarm
 
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.jiib.jnucenter.mvvm.repository.AlarmRepository
 
 class FcmService : FirebaseMessagingService() {
 
@@ -9,7 +10,8 @@ class FcmService : FirebaseMessagingService() {
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
         // token을 서버로 전송한다
-
+        val repository = AlarmRepository()
+        repository.postFcmToken(p0)
     }
 
     // 클라우드 서버에서 메시지를 전송하면 자동으로 호출됨

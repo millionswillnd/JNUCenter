@@ -25,10 +25,10 @@ class AlarmService {
         return response
     }
 
-    fun setFcmToken(token : String){
+    fun setFcmToken(token : String) : Call<String>{
         val client : Retrofit = retrofit_client.getInstance()
-        val response = client.create(AlarmApi::class.java).postFcmToken(token)
+        val response = client.create(AlarmApi::class.java).postFcmToken(1, token)
 
-    return response
+        return response
     }
 }

@@ -32,5 +32,6 @@ class AlarmRepository {
     // 서버로 fcm 토큰을 보낸다
     fun postFcmToken(token: String){
         val response = alarm_service.setFcmToken(token)
+        response.execute()
     }
 }

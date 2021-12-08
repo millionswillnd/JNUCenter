@@ -23,10 +23,9 @@ interface AlarmApi {
     ) : Call<AlarmDTO>
 
     // FCM 토큰을 서버로 전송
-    @POST("/alarm/token")
+    @POST("/alarm/token/{user_id}")
     fun postFcmToken(
+        @Path("user_id") user_id : Int,
         @Query("fcm_token") fcm_token : String
-    )
-
-
+    ) : Call<String>
 }

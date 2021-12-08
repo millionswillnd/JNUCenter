@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.google.firebase.messaging.FirebaseMessaging
 import com.jiib.jnucenter.R
 import com.jiib.jnucenter.databinding.ActivityAlarmBinding
 import com.jiib.jnucenter.mvvm.feature.main.MainActivity
@@ -31,6 +32,17 @@ class AlarmActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_alarm)
+
+        // TEST
+        var temp = ""
+        val token = FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            task ->
+
+            if (task.isSuccessful){
+                temp = task.result!!
+                System.out.println("확인 ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ $temp")
+            }
+        }
 
         // 뷰모델 초기화
         viewmodel = ViewModelProvider(this).get(AlarmViewModel::class.java)
