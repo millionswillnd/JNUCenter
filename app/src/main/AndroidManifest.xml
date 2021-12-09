@@ -4,6 +4,7 @@
     <!-- 퍼미션 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -13,35 +14,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JNUCenter"
         android:usesCleartextTraffic="true"
+        android:name=".mvvm.feature.application.JnuApplication"
         >
-        <activity android:name=".mvvm.feature.alarm.AlarmActivity"></activity>
+        <activity android:name=".mvvm.feature.alarm.AlarmActivity" />
         <activity android:name=".mvvm.feature.lecture.LectureDateActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3958688591357712~6987190618" />
-
-        <!-- NumberActivity -->
+            android:value="ca-app-pub-3958688591357712~6987190618" /> <!-- NumberActivity -->
         <activity
             android:name=".mvvm.feature.number.NumberActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustNothing" />
-
-        <!-- SplashActivity -->
+            android:windowSoftInputMode="adjustNothing" /> <!-- SplashActivity -->
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- MainActivity -->
+        </activity> <!-- MainActivity -->
         <activity
             android:name=".mvvm.feature.main.MainActivity"
-            android:windowSoftInputMode="adjustNothing" />
-
-        <!-- 파이어베이스 Service 컴포넌트 -->
+            android:windowSoftInputMode="adjustNothing" /> <!-- 파이어베이스 Service 컴포넌트 -->
         <service
             android:name=".mvvm.feature.alarm.FcmService"
             android:exported="false">
@@ -49,8 +43,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-
     </application>
 
 </manifest>
