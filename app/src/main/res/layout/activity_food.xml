@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mvvm.feature.food.FoodActivity">
+
+    <ImageButton
+        android:id="@+id/food_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/number_back_button"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="@id/food_left_guide"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/food_top_guide"
+        ></ImageButton>
+
+    <TextView
+        android:id="@+id/food_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="학식 정보"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/main_color_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/food_top_guide"
+        ></TextView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/food_left_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/food_right_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/food_top_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.09"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <View
+        android:id="@+id/top_line_view"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@color/main_color_green"
+        app:layout_constraintTop_toBottomOf="@id/food_top_guide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        ></View>
+
+    <TextView
+        android:id="@+id/food_launch_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="학식 점심 메뉴"
+        android:textStyle="bold"
+        android:textSize="23sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/food_left_guide"
+        app:layout_constraintBottom_toBottomOf="@id/launch_title_base_guide"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/food_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9/06 화요일"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@id/food_right_guide"
+        app:layout_constraintBottom_toTopOf="@id/launch_title_base_guide"
+        ></TextView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/launch_title_base_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.18"
+        android:orientation="horizontal"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/food_launch_const"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/food_constview_green"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@id/food_left_guide"
+        app:layout_constraintEnd_toEndOf="@id/food_right_guide"
+        app:layout_constraintTop_toBottomOf="@id/launch_title_base_guide"
+        app:layout_constraintBottom_toTopOf="@id/launch_const_bottom_guide"
+        >
+
+        <TextView
+            android:id="@+id/launch_first_student_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="※ 제 1 학생회관 "
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/launch_first_student_menus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="흰쌀밥, 유부우동, 순살치킨가스, 샐러드+드레싱, 단무지, 배추김치, 요구르트"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintTop_toBottomOf="@id/launch_first_student_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            ></TextView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/launch_const_center_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"
+            ></androidx.constraintlayout.widget.Guideline>
+
+        <TextView
+            android:id="@+id/launch_hatdle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="※ 햇들마루 "
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/launch_const_center_guide"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/launch_hatdle_menus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="쌀밥, 콩나물국, 제육볶음, 연두부+양념장, 비밈당면, 검은콩조림, 포기김치"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintTop_toBottomOf="@id/launch_hatdle_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            ></TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/launch_const_bottom_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.55"
+        android:orientation="horizontal"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/dinner_title_base_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.63"
+        android:orientation="horizontal"
+        ></androidx.constraintlayout.widget.Guideline>
+
+    <TextView
+        android:id="@+id/food_dinner_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="학식 저녁 메뉴"
+        android:textStyle="bold"
+        android:textSize="23sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/dinner_title_base_guide"
+        app:layout_constraintStart_toStartOf="@id/food_left_guide"
+        ></TextView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/food_dinner_const"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/food_constview_green"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@id/food_left_guide"
+        app:layout_constraintEnd_toEndOf="@id/food_right_guide"
+        app:layout_constraintTop_toBottomOf="@id/dinner_title_base_guide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/dinner_first_student_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="※ 제 1 학생회관"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/dinner_first_student_menus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="흰쌀밥, 유부우동, 순살치킨가스, 샐러드+드레싱, 단무지, 배추김치, 요구르트"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintTop_toBottomOf="@id/dinner_first_student_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            ></TextView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/dinner_const_center_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"
+            ></androidx.constraintlayout.widget.Guideline>
+
+        <TextView
+            android:id="@+id/dinner_hatdle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="※ 햇들마루 "
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dinner_const_center_guide"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/dinner_hatdle_menus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="김치돈채덮밥, 팽이두부장국, 모듬햄간장볶음, 로제떡볶이, 요구르트, 깍두기"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintTop_toBottomOf="@id/dinner_hatdle_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            ></TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.jiib.jnucenter.R
 import com.jiib.jnucenter.databinding.MainIconFragOneBinding
 import com.jiib.jnucenter.mvvm.feature.alarm.AlarmActivity
+import com.jiib.jnucenter.mvvm.feature.food.FoodActivity
 import com.jiib.jnucenter.mvvm.feature.lecture.LectureDateActivity
 
 class IconFirstFragment : Fragment(), View.OnClickListener {
@@ -67,7 +68,8 @@ class IconFirstFragment : Fragment(), View.OnClickListener {
 
             // 오늘의 학식
             R.id.customview3 -> {
-                Toast.makeText(mainContext, "터치이벤트 입니다", Toast.LENGTH_LONG).show()
+                val intent = Intent(mainContext, FoodActivity::class.java)
+                startActivity(intent)
             }
 
             // 건물 찾기
