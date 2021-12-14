@@ -15,6 +15,7 @@ import com.google.firebase.messaging.RemoteMessage
 import com.google.firebase.messaging.ktx.remoteMessage
 import com.jiib.jnucenter.R
 import com.jiib.jnucenter.mvvm.feature.application.JnuApplication
+import com.jiib.jnucenter.mvvm.feature.food.FoodActivity
 import com.jiib.jnucenter.mvvm.feature.lecture.LectureDateActivity
 import com.jiib.jnucenter.mvvm.feature.main.MainActivity
 import com.jiib.jnucenter.mvvm.repository.AlarmRepository
@@ -34,11 +35,20 @@ class FcmService : FirebaseMessagingService() {
     override fun onMessageReceived(p0: RemoteMessage) {
         super.onMessageReceived(p0)
 
+        var intent: Intent? = null
 
-        // 알람 클릭시 강의 기한 액티비티로 이동하는 펜딩인텐트
-        // 플래그 -> 새로운 태스크의 루트 액티비티로 + 전에 있던 old 액티비티들 다 날리기
-        val intent = Intent(applicationContext, LectureDateActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+        // 알람 클릭시 강의 기한 액티비티 or 학식 액티비티로 이동
+        // 학식인 경우
+        if(p0.data.get("title")!!.contains("메뉴")){
+            intent = Intent(applicationContext, FoodActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        // 강의기한인 경우
+        else {
+            intent = Intent(applicationContext, LectureDateActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
         val pending_intent = PendingIntent.getActivity(
             applicationContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
