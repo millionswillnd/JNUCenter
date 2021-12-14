@@ -7,6 +7,7 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Color
 import android.util.Log
+import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
@@ -37,26 +38,33 @@ class FcmService : FirebaseMessagingService() {
 
         var intent: Intent? = null
 
+        // notification 알람 커스텀뷰
+        val content_view = RemoteViews(packageName, R.layout.fcm_custom_noti)
+        content_view.setTextViewText(R.id.fcm_title_tv, p0.data.get("title"))
+        content_view.setTextViewText(R.id.fcm_body_tv, p0.data.get("body"))
 
         // 알람 클릭시 강의 기한 액티비티 or 학식 액티비티로 이동
         // 학식인 경우
         if(p0.data.get("title")!!.contains("메뉴")){
             intent = Intent(applicationContext, FoodActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            content_view.setImageViewResource(R.id.fcm_icon, R.drawable.main_icon_color_food)
         }
         // 강의기한인 경우
         else {
             intent = Intent(applicationContext, LectureDateActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            content_view.setImageViewResource(R.id.fcm_icon, R.drawable.main_icon_color_calendar)
         }
+
         val pending_intent = PendingIntent.getActivity(
             applicationContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
+        // 전역변수 접근
         val app = applicationContext as JnuApplication
 
         val notification = NotificationCompat.Builder(this, "101")
-            .setContentTitle(p0.data.get("title"))
-            .setContentText(p0.data.get("body"))
+            .setContent(content_view)
             .setSmallIcon(R.drawable.main_icon_calendar)
             .setShowWhen(true)
             .setPriority(NotificationCompat.PRIORITY_HIGH)

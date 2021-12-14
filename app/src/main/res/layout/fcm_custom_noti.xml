@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fcm_layout"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/fcm_icon"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/main_icon_color_food"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/fcm_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textColor="@color/main_color_green"
+        android:layout_toRightOf="@id/fcm_icon"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/fcm_body_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:layout_toRightOf="@id/fcm_icon"
+        android:layout_below="@id/fcm_title_tv"
+        ></TextView>
+
+</RelativeLayout>
