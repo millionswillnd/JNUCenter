@@ -9,7 +9,7 @@ class FoodService {
 
     private val retrofit_client = RetrofitClient
 
-    fun getFoodList() : Call<FoodDTO> {
+    fun getFoodList() : Call<List<FoodDTO>> {
         val client : Retrofit = retrofit_client.getInstance()
         val response = client.create(FoodApi::class.java).getFoodList()
         return response

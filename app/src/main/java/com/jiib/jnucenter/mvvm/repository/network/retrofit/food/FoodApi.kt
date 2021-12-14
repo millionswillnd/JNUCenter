@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface FoodApi {
 
     @GET("/food/list")
-    fun getFoodList(): Call<FoodDTO>
+    fun getFoodList(): Call<List<FoodDTO>>
 }

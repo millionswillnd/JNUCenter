@@ -135,6 +135,7 @@
             app:layout_constraintTop_toBottomOf="@id/launch_first_student_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
             ></TextView>
 
         <androidx.constraintlayout.widget.Guideline
@@ -170,6 +171,7 @@
             app:layout_constraintTop_toBottomOf="@id/launch_hatdle_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
             ></TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -239,6 +241,7 @@
             app:layout_constraintTop_toBottomOf="@id/dinner_first_student_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
             ></TextView>
 
         <androidx.constraintlayout.widget.Guideline
@@ -274,6 +277,7 @@
             app:layout_constraintTop_toBottomOf="@id/dinner_hatdle_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
             ></TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
