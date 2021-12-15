@@ -15,8 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JNUCenter"
         android:usesCleartextTraffic="true">
-        <activity android:name=".mvvm.feature.food.FoodActivity"></activity>
-        <activity android:name=".mvvm.feature.FoodActivity" />
+        <activity android:name=".mvvm.feature.board.BoardActivity"></activity>
+        <activity android:name=".mvvm.feature.food.FoodActivity" />
         <activity android:name=".mvvm.feature.alarm.AlarmActivity" />
         <activity android:name=".mvvm.feature.lecture.LectureDateActivity" />
 
