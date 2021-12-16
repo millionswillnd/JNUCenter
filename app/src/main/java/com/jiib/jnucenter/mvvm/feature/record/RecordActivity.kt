@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -21,6 +22,7 @@ class RecordActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_record)
 
         viewmodel = ViewModelProvider(this).get(RecordViewModel::class.java)
+
     }
 
 
