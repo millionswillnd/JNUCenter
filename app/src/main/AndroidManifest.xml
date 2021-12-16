@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
 
     <application
         android:name=".mvvm.feature.application.JnuApplication"
@@ -15,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JNUCenter"
         android:usesCleartextTraffic="true">
-        <activity android:name=".mvvm.feature.board.BoardActivity"></activity>
+        <activity android:name=".mvvm.feature.record.RecordActivity"></activity>
+        <activity android:name=".mvvm.feature.place.PlaceActivity" />
+        <activity android:name=".mvvm.feature.board.BoardActivity" />
         <activity android:name=".mvvm.feature.food.FoodActivity" />
         <activity android:name=".mvvm.feature.alarm.AlarmActivity" />
         <activity android:name=".mvvm.feature.lecture.LectureDateActivity" />

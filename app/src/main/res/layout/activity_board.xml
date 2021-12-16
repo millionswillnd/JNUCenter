@@ -139,71 +139,91 @@
         android:background="@color/grey"
         >
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.98"
+            ></androidx.constraintlayout.widget.Guideline>
+
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_meeting_title1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/end_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_meeting_title2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_meeting_title1"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/end_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_meeting_title3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_meeting_title2"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/end_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_meeting_title4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_meeting_title3"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/end_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_meeting_title5"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_meeting_title4"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/end_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_meeting_title6"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_meeting_title5"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/end_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -218,77 +238,100 @@
         app:layout_constraintStart_toEndOf="@id/board_left_guide"
         app:layout_constraintEnd_toStartOf="@id/board_right_guide"
         >
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/board_market_const"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/grey"
         >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.98"
+            ></androidx.constraintlayout.widget.Guideline>
+
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_market_title1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/right_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_market_title2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_market_title1"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/right_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_market_title3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_market_title2"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/right_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_market_title4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_market_title3"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/right_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_market_title5"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_market_title4"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/right_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
 
         <com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle
             android:id="@+id/main_market_title6"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:title="전남대 용봉 호수 냄새로 인한 민원.. 대책 시급"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/main_market_title5"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/right_guide"
+            app:layout_constraintHorizontal_bias="0"
             ></com.jiib.jnucenter.mvvm.feature.main.CustomNewsTitle>
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

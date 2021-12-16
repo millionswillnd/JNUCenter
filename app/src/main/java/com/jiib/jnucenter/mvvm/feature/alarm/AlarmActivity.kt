@@ -33,17 +33,6 @@ class AlarmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_alarm)
 
-        // TEST
-        var temp = ""
-        val token = FirebaseMessaging.getInstance().token.addOnCompleteListener {
-            task ->
-
-            if (task.isSuccessful){
-                temp = task.result!!
-                System.out.println("확인 ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ $temp")
-            }
-        }
-
         // 뷰모델 초기화
         viewmodel = ViewModelProvider(this).get(AlarmViewModel::class.java)
 

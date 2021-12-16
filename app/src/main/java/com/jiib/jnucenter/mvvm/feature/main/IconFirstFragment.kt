@@ -15,6 +15,8 @@ import com.jiib.jnucenter.mvvm.feature.alarm.AlarmActivity
 import com.jiib.jnucenter.mvvm.feature.board.BoardActivity
 import com.jiib.jnucenter.mvvm.feature.food.FoodActivity
 import com.jiib.jnucenter.mvvm.feature.lecture.LectureDateActivity
+import com.jiib.jnucenter.mvvm.feature.place.PlaceActivity
+import com.jiib.jnucenter.mvvm.feature.record.RecordActivity
 
 class IconFirstFragment : Fragment(), View.OnClickListener {
 
@@ -75,7 +77,8 @@ class IconFirstFragment : Fragment(), View.OnClickListener {
 
             // 건물 찾기
             R.id.customview4 -> {
-                Toast.makeText(mainContext, "터치이벤트 입니다", Toast.LENGTH_LONG).show()
+                val intent = Intent(mainContext, PlaceActivity::class.java)
+                startActivity(intent)
             }
 
             // 모임, 알뜰장터
@@ -86,7 +89,8 @@ class IconFirstFragment : Fragment(), View.OnClickListener {
 
             // 수업 녹음
             R.id.customview6 -> {
-                Toast.makeText(mainContext, "터치이벤트 입니다", Toast.LENGTH_LONG).show()
+                val intent = Intent(mainContext, RecordActivity::class.java)
+                startActivity(intent)
             }
         }
     }

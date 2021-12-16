@@ -50,6 +50,12 @@ class FcmService : FirebaseMessagingService() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             content_view.setImageViewResource(R.id.fcm_icon, R.drawable.main_icon_color_food)
         }
+        // 장학인 경우
+        else if (p0.data.get("title")!!.contains("장학")){
+            intent = Intent(applicationContext, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            content_view.setImageViewResource(R.id.fcm_icon, R.drawable.fcm_icon_scholarship)
+        }
         // 강의기한인 경우
         else {
             intent = Intent(applicationContext, LectureDateActivity::class.java)

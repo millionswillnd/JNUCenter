@@ -13,6 +13,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:clickable="false"
+        android:ellipsize="end"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
