@@ -76,4 +76,8 @@ dependencies {
 
     // 머터리얼 디자인
     implementation 'com.google.android.material:material:1.2.1'
+
+    // room 관련
+    implementation "androidx.room:room-runtime:2.3.0"
+    annotationProcessor "androidx.room:room-compiler:2.3.0"
 }

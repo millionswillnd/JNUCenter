@@ -90,15 +90,30 @@
         app:layout_constraintGuide_percent="0.15"
         ></androidx.constraintlayout.widget.Guideline>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/record_recyclerview"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/record_center_constraint"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/record_const_background"
         app:layout_constraintStart_toEndOf="@id/record_left_guide"
         app:layout_constraintEnd_toStartOf="@id/record_right_guide"
         app:layout_constraintTop_toBottomOf="@id/record_recyclerview_top_guide"
         app:layout_constraintBottom_toTopOf="@id/record_recyclerview_bottom_guide"
-        ></androidx.recyclerview.widget.RecyclerView>
+        android:padding="20dp"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/record_recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            ></androidx.recyclerview.widget.RecyclerView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/record_recyclerview_bottom_guide"

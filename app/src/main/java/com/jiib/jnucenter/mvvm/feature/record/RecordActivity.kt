@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.jiib.jnucenter.R
 import com.jiib.jnucenter.databinding.ActivityRecordBinding
 
@@ -16,6 +18,8 @@ class RecordActivity : AppCompatActivity() {
     lateinit var binding : ActivityRecordBinding
     lateinit var viewmodel : RecordViewModel
     private val RECORD_PERMISSION_CODE = 101
+    lateinit var recycler_view : RecyclerView
+    lateinit var adapter : RecordAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +27,11 @@ class RecordActivity : AppCompatActivity() {
 
         viewmodel = ViewModelProvider(this).get(RecordViewModel::class.java)
 
+        // 리사이클러뷰 세팅
+        adapter = RecordAdapter()
+        recycler_view = binding.recordRecyclerview
+        recycler_view.adapter = adapter
+        recycler_view.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
 
