@@ -39,7 +39,7 @@
         android:id="@+id/record_save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="저장하기"
+        android:text="삭제하기"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -100,7 +100,7 @@
         app:layout_constraintEnd_toStartOf="@id/record_right_guide"
         app:layout_constraintTop_toBottomOf="@id/record_recyclerview_top_guide"
         app:layout_constraintBottom_toTopOf="@id/record_recyclerview_bottom_guide"
-        android:padding="20dp"
+        android:padding="5dp"
         >
 
         <androidx.recyclerview.widget.RecyclerView

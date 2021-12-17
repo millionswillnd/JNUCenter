@@ -1,9 +1,14 @@
 package com.jiib.jnucenter.mvvm.repository
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.jiib.jnucenter.mvvm.repository.model.database.room.Records
 import com.jiib.jnucenter.mvvm.repository.model.database.room.RecordsDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 // 뷰모델에서 안드로이드 context를 건네주면 레이어 특성상 곤란하기에 Application을 건네준다
 class RecordRepository(application: Application) {
@@ -13,10 +18,19 @@ class RecordRepository(application: Application) {
     private val record_dao = record_db!!.recordsDao()
 
     // 레코드 담은 라이브데이터
-    private val records: LiveData<List<Records>> = record_dao.getAllRecords()
+    val record_list : MutableLiveData<List<Records>> = MutableLiveData()
 
     // room db의 Record 테이블에 녹음 파일을 저장
     fun saveRecord(title: String, time: String, url: String){
         record_dao.insertRecord(null, title, time, url)
+    }
+
+    fun getAllRecords(){
+        val list = record_dao.getAllRecords()
+        record_list.postValue(list)
+    }
+
+    fun deleteRecord(id:Int){
+        record_dao.deleteRecord(id)
     }
 }

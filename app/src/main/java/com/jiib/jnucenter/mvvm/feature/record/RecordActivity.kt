@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable
 import android.media.MediaRecorder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.widget.Button
 import android.widget.EditText
@@ -28,6 +29,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.concurrent.timer
 
 class RecordActivity : AppCompatActivity() {
@@ -44,6 +46,7 @@ class RecordActivity : AppCompatActivity() {
     private var record_util = RecordUtil()
     private var timer : Timer? = null
     private var dialog: Dialog? = null
+    private var check_list : ArrayList<Int>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,11 +55,38 @@ class RecordActivity : AppCompatActivity() {
         viewmodel = ViewModelProvider(this, RecordViewModel.Factory(application))
             .get(RecordViewModel::class.java)
 
+        // 다중 삭제 id list
+        check_list = ArrayList<Int>()
+
         // 리사이클러뷰 세팅
-        adapter = RecordAdapter()
-        recycler_view = binding.recordRecyclerview
-        recycler_view.adapter = adapter
-        recycler_view.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        CoroutineScope(Dispatchers.IO).launch {
+            viewmodel.getAllRecords()
+        }
+
+        viewmodel.record_list.observe(this, androidx.lifecycle.Observer {
+            adapter = RecordAdapter(it, check_list)
+            recycler_view = binding.recordRecyclerview
+            recycler_view.adapter = adapter
+            recycler_view.layoutManager = LinearLayoutManager(this@RecordActivity, RecyclerView.VERTICAL, false)
+        })
+
+        // 다중 삭제 구현
+        binding.recordSaveButton.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                val job = launch {
+                    for(id in check_list!!){
+                        viewmodel.deleteRecord(id)
+                        viewmodel.getAllRecords()
+                    }
+                }
+
+                withContext(Dispatchers.Main){
+                    job.join()
+                    Toast.makeText(this@RecordActivity, "성공적으로 삭제되었습니다!", Toast.LENGTH_LONG).show()
+                    adapter.notifyDataSetChanged()
+                }
+            }
+        }
 
         // 녹음파일을 저장할 내부저장소 파일 경로
         val directory = ContextWrapper(this).getDir("recordDir", Context.MODE_PRIVATE)
@@ -145,7 +175,8 @@ class RecordActivity : AppCompatActivity() {
                                     job.join()
                                     binding.recordTime.text = "00:00:00"
                                     dismiss()
-                                    Toast.makeText(this@RecordActivity
+                                    Toast.makeText(
+                                        this@RecordActivity
                                         , "녹음을 저장했습니다!"
                                         , Toast.LENGTH_LONG)
                                         .show()
