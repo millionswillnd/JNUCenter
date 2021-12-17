@@ -7,7 +7,9 @@ import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.MediaPlayer
 import android.media.MediaRecorder
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -27,6 +29,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.internal.notify
 import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
@@ -47,6 +50,9 @@ class RecordActivity : AppCompatActivity() {
     private var timer : Timer? = null
     private var dialog: Dialog? = null
     private var check_list : ArrayList<Int>? = null
+    // 음악 재생 관련
+    private var media_player : MediaPlayer? = null
+    private var record_path : StringBuffer = StringBuffer("")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,13 +64,17 @@ class RecordActivity : AppCompatActivity() {
         // 다중 삭제 id list
         check_list = ArrayList<Int>()
 
+
         // 리사이클러뷰 세팅
         CoroutineScope(Dispatchers.IO).launch {
             viewmodel.getAllRecords()
         }
 
         viewmodel.record_list.observe(this, androidx.lifecycle.Observer {
-            adapter = RecordAdapter(it, check_list)
+            adapter = RecordAdapter(
+                it,
+                check_list,
+                {path:String -> changeRecordPath(path)} )
             recycler_view = binding.recordRecyclerview
             recycler_view.adapter = adapter
             recycler_view.layoutManager = LinearLayoutManager(this@RecordActivity, RecyclerView.VERTICAL, false)
@@ -72,6 +82,12 @@ class RecordActivity : AppCompatActivity() {
 
         // 다중 삭제 구현
         binding.recordSaveButton.setOnClickListener {
+
+            if (check_list!!.isEmpty()){
+                Toast.makeText(this, "삭제할 아이템을 골라주세요!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             CoroutineScope(Dispatchers.IO).launch {
                 val job = launch {
                     for(id in check_list!!){
@@ -197,8 +213,6 @@ class RecordActivity : AppCompatActivity() {
                     state = RecordState.BEFORE_RECORDING
                     count = 0; hours = 0; minutes = 0; seconds = 0
                     timer!!.cancel()
-
-
                 }
             }
         }
@@ -223,5 +237,16 @@ class RecordActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+
+
+    // adpater에서 재생 버튼 누를 시 새로운 값으로 다시 변수들 세팅
+    private fun changeRecordPath(path : String): MediaPlayer{
+        record_path.setLength(0)
+        record_path.append(path)
+        media_player = MediaPlayer.create(this@RecordActivity, Uri.parse(record_path.toString()))
+
+        return media_player!!
     }
 }
