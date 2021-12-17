@@ -6,7 +6,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Records(
-    @PrimaryKey val id : Int,
-    @ColumnInfo(name = "record_name") val record_name: String,
+    @PrimaryKey(autoGenerate = true)
+    var id : Int = 0,
+    @ColumnInfo(name = "record_title") val record_title: String,
+    @ColumnInfo(name = "record_time") val record_time : String,
     @ColumnInfo(name = "record_url") val record_url: String
 )

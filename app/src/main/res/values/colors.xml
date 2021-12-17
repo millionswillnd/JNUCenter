@@ -17,4 +17,5 @@
     <color name="skyblue">#81D4FA</color>
     <color name="main_view_color_mint">#CFFFE5</color>
     <color name="food_constview_green">#D7FAD8</color>
+    <color name="transparent">#00000000</color>
 </resources>

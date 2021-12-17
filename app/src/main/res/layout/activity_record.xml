@@ -175,7 +175,7 @@
         android:id="@+id/record_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3:24"
+        android:text="0:00:00"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="30sp"
