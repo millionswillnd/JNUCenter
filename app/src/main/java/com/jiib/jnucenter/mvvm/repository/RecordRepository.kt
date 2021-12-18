@@ -1,11 +1,16 @@
 package com.jiib.jnucenter.mvvm.repository
 
 import android.app.Application
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.jiib.jnucenter.mvvm.repository.model.database.room.Records
 import com.jiib.jnucenter.mvvm.repository.model.database.room.RecordsDatabase
+import com.jiib.jnucenter.mvvm.repository.network.google.GoogleDrive
+import com.jiib.jnucenter.mvvm.repository.network.google.GoogleLogin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,6 +22,10 @@ class RecordRepository(application: Application) {
     private val record_db = RecordsDatabase.getInstance(application)
     private val record_dao = record_db!!.recordsDao()
 
+    // 구글 로그인, 드라이브
+    private val google_login = GoogleLogin()
+    private val google_drive = GoogleDrive()
+
     // 레코드 담은 라이브데이터
     val record_list : MutableLiveData<List<Records>> = MutableLiveData()
 
@@ -25,12 +34,31 @@ class RecordRepository(application: Application) {
         record_dao.insertRecord(null, title, time, url)
     }
 
+    // 모든 녹음파일을 select
     fun getAllRecords(){
         val list = record_dao.getAllRecords()
         record_list.postValue(list)
     }
 
+    // 특정 녹음파일을 db에서 삭제한다
     fun deleteRecord(id:Int){
         record_dao.deleteRecord(id)
+    }
+
+    //구글 로그인 유저 최근 로그인 계정 여부 리턴
+    fun isUserSignedIn(context: Context) : Boolean {
+        return google_login.isUserSignedIn(context)
+    }
+
+    // 구글 로그인 intent 리턴
+    fun googleSignIn(context: Context, setActivityGClient : (GoogleSignInOptions) -> Unit): Intent? {
+        return google_login.googleSignIn(context, setActivityGClient)
+    }
+
+    // 구글 드라이브에 파일 업로드
+    fun uploadFileToGDrive(context: Context, id: Int){
+        // 특정 id를 가진 컬럼의 path
+        val path = record_dao.getRecordPath(id)
+        google_drive.uploadFileToGDrive(context, path)
     }
 }

@@ -161,7 +161,7 @@
         android:id="@+id/record_google_backup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="구글드라이브 백업"
+        android:text="구글 Drive 백업"
         android:textColor="@color/main_color_green"
         android:textStyle="bold"
         android:textSize="20sp"

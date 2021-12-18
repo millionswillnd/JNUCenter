@@ -16,4 +16,7 @@ interface RecordsDao {
 
     @Query("DELETE FROM Records WHERE id=:id")
     fun deleteRecord(id:Int)
+
+    @Query("SELECT record_url FROM Records WHERE id=:id")
+    fun getRecordPath(id: Int) : String
 }
