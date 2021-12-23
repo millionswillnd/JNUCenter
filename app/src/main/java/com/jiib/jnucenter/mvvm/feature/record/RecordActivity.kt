@@ -33,6 +33,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.jiib.jnucenter.R
 import com.jiib.jnucenter.databinding.ActivityRecordBinding
+import com.jiib.jnucenter.mvvm.feature.main.MainActivity
 import com.jiib.jnucenter.mvvm.utils.RecordUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -89,7 +90,10 @@ class RecordActivity : AppCompatActivity() {
                 {path:String -> changeRecordPath(path)} )
             recycler_view = binding.recordRecyclerview
             recycler_view.adapter = adapter
-            recycler_view.layoutManager = LinearLayoutManager(this@RecordActivity, RecyclerView.VERTICAL, false)
+            recycler_view.layoutManager = LinearLayoutManager(
+                this@RecordActivity,
+                RecyclerView.VERTICAL,
+                false)
         })
 
         // 다중 삭제 구현
@@ -143,7 +147,7 @@ class RecordActivity : AppCompatActivity() {
                 RecordState.BEFORE_RECORDING -> {
                     recorder!!.apply {
                         // 세팅
-                        file_path = File(directory, System.currentTimeMillis().toString()).absolutePath
+                        file_path = File(directory, System.currentTimeMillis().toString()).canonicalPath
                         record_util.setRecordSettings(recorder!!, file_path)
                         // 녹음 시작
                         prepare()
@@ -197,6 +201,8 @@ class RecordActivity : AppCompatActivity() {
                                         findViewById<EditText>(R.id.title_et).text.toString(),
                                         binding.recordTime.text.toString(),
                                         file_path)
+                                    // 새로운 녹음 리스트로 livedata 세팅
+                                    viewmodel.getAllRecords()
                                 }
 
                                 withContext(Dispatchers.Main){
@@ -229,13 +235,14 @@ class RecordActivity : AppCompatActivity() {
             }
         }
 
-        // startActivityForResult가 deprecated 되어서 대체
-        // 장점 : 더 이상 리퀘스트 코드로 안받아도 된다
+        // startActivityForResult deprecated, 대체
+        // 장점 : 더 이상 리퀘스트 코드 안받아도 된다
         result_launcher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()){ result ->
             if (result.resultCode == RESULT_OK){
                 // 구글드라이브에 체크된 녹음 파일들을 업로드
                 CoroutineScope(Dispatchers.IO).launch {
+                    viewmodel.getAllRecords()
                     if (check_list?.isEmpty()!!){
                         withContext(Dispatchers.Main){
                             Toast.makeText(this@RecordActivity, "업로드할 녹음을 골라주세요", Toast.LENGTH_SHORT).show()
@@ -288,6 +295,12 @@ class RecordActivity : AppCompatActivity() {
                         }
                 }
             }
+        }
+
+        // 백버튼 클릭리스너
+        binding.recordBackButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 

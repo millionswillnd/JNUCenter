@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jiib.jnucenter">
+
     <!-- 퍼미션 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
 
     <application
         android:name=".mvvm.feature.application.JnuApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JNUCenter"
         android:usesCleartextTraffic="true">
+
+
         <activity android:name=".mvvm.feature.record.RecordActivity"></activity>
-        <activity android:name=".mvvm.feature.place.PlaceActivity" />
+        <!-- PlaceActivity -->
+        <activity
+            android:name=".mvvm.feature.place.PlaceActivity"
+            android:windowSoftInputMode="adjustNothing"
+            />
         <activity android:name=".mvvm.feature.board.BoardActivity" />
         <activity android:name=".mvvm.feature.food.FoodActivity" />
         <activity android:name=".mvvm.feature.alarm.AlarmActivity" />
         <activity android:name=".mvvm.feature.lecture.LectureDateActivity" />
 
+        <!-- kakao map app key -->
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="d69971c296a2a9bc402eb2ed6eebc501"/>
+        <!-- google ads -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3958688591357712~6987190618" /> <!-- NumberActivity -->
+            android:value="ca-app-pub-3958688591357712~6987190618" />
+        <!-- NumberActivity -->
         <activity
             android:name=".mvvm.feature.number.NumberActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustNothing" /> <!-- SplashActivity -->
+            android:windowSoftInputMode="adjustNothing" />
+        <!-- SplashActivity -->
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- MainActivity -->
+        </activity>
+        <!-- MainActivity -->
         <activity
             android:name=".mvvm.feature.main.MainActivity"
-            android:windowSoftInputMode="adjustNothing" /> <!-- 파이어베이스 Service 컴포넌트 -->
+            android:windowSoftInputMode="adjustNothing" />
+        <!-- 파이어베이스 Service 컴포넌트 -->
         <service
             android:name=".mvvm.feature.alarm.FcmService"
             android:exported="false">

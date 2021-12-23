@@ -14,6 +14,7 @@ import com.jiib.jnucenter.mvvm.repository.network.google.GoogleLogin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 
 // 뷰모델에서 안드로이드 context를 건네주면 레이어 특성상 곤란하기에 Application을 건네준다
 class RecordRepository(application: Application) {
@@ -40,9 +41,18 @@ class RecordRepository(application: Application) {
         record_list.postValue(list)
     }
 
-    // 특정 녹음파일을 db에서 삭제한다
+    // 특정 녹음파일을 db와 내부저장소에서 삭제한다
     fun deleteRecord(id:Int){
+        // 둘의 순서 주의
+        val path = record_dao.getRecordPath(id)
         record_dao.deleteRecord(id)
+
+        // 내부저장소에서도 삭제
+        val file = File(path)
+        if (file.exists()){
+            if (file.delete()) Log.d("파일 삭제 :", "성공")
+            else Log.d("파일 삭제 :", "실패")
+        } else Log.d("파일 삭제 :", "파일이 없습니다")
     }
 
     //구글 로그인 유저 최근 로그인 계정 여부 리턴

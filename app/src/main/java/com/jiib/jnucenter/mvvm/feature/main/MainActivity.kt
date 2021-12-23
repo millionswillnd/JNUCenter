@@ -23,6 +23,9 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.initialization.InitializationStatus
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener
+import com.google.firebase.iid.FirebaseInstanceIdReceiver
+import com.google.firebase.iid.internal.FirebaseInstanceIdInternal
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
@@ -62,6 +65,7 @@ class MainActivity : AppCompatActivity() {
             viewModel.getDate()
             // 신문 정보 신청
             viewModel.getNewsList()
+
         }
 
         // 날씨 아이콘 정보 세팅
@@ -128,8 +132,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
-
         // 뷰페이저 세팅
         viewPager = binding.iconViewpager
         val pagerAdapter = IconViewPagerAdapter(this)
@@ -158,7 +160,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
         // 서치뷰 intent 설정
         binding.mainSearchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -173,6 +174,7 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
 
 
     override fun onRestart() {
@@ -205,4 +207,6 @@ class MainActivity : AppCompatActivity() {
         if(view_title_list != null) view_title_list = null
         if(weather_util != null) weather_util = null
     }
+
+
 }

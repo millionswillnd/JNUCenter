@@ -45,7 +45,6 @@ class RecordAdapter(private val record_list: List<Records>,
     }
 
     override fun getItemCount(): Int {
-        // 주입한 아이템 갯수로 리턴 ㅇㅇ 파라미터
         return record_list.size
     }
 
@@ -105,9 +104,6 @@ class RecordAdapter(private val record_list: List<Records>,
                                     isLooping = false // 무한반복 방지
                                     start()
                                 }
-
-
-
                                 // 뷰 작업
                                 withContext(Dispatchers.Main){
                                     binding.checkBox.visibility = View.GONE
