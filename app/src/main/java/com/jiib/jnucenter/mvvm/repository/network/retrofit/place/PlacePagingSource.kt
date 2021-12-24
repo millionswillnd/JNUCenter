@@ -18,6 +18,7 @@ class PlacePagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PlaceDTO> {
         val page_index = params?.key ?: STARTING_INDEX
         return try {
+            // 검색 x. 전체 목록
             if (isSearch == "false"){
                 places = place_service.getPlaces(page_index)
             }

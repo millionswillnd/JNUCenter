@@ -37,7 +37,7 @@ class LectureAdapter(val lecture_util: LectureUtil, val lecture_date_list: List<
 }
 
 
-// 이너클래스로 구현할 경우 외부클래스 참조를 가지기에 top-level로 선언해준다
+// 이너클래스로 구현할 경우 외부클래스 참조를 가지기에 top-level로 선언
  class LectureViewHolder(
      private val binding : LectureRecyclerviewItemBinding,
      private val lecture_util : LectureUtil,

@@ -23,16 +23,16 @@ import com.jiib.jnucenter.mvvm.repository.AlarmRepository
 
 class FcmService : FirebaseMessagingService() {
 
-    // 클라우드 서버에 등록되었을 때 호출. 파라미터가 토큰
+    // 클라우드 서버에 등록되었을 때 호출(p0 = 토큰값)
     // token을 서버로 전송
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
-        val repository = AlarmRepository()
-        repository.postFcmToken(p0)
+        val alarm_viewmodel = AlarmViewModel()
+            alarm_viewmodel.sendFcmToken(p0)
     }
 
     // 백엔드에서 notification을 json 프로퍼티로 주지 않을 시
-    // 아래 메소드에서 포그라운드 뿐 아니라 백그라운드 메시지도 핸들 가능
+    // 아래 메소드에서 포그라운드 뿐 아니라 앱 백그라운드 상태에서도 메시지 핸들 가능
     override fun onMessageReceived(p0: RemoteMessage) {
         super.onMessageReceived(p0)
 

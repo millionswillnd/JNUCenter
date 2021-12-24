@@ -20,7 +20,7 @@ import java.lang.StringBuilder
 
 class RecordAdapter(private val record_list: List<Records>,
                     private val check_list: ArrayList<Int>?,
-                    private val setMediaPlayer : (String) -> MediaPlayer
+                    private val setMediaPlayer : (String) -> MediaPlayer?
                     ) : RecyclerView.Adapter<RecordAdapter.ViewHolder>()  {
 
 
@@ -51,7 +51,7 @@ class RecordAdapter(private val record_list: List<Records>,
 
     // 뷰홀더
     class ViewHolder(private val binding : RecordRecyclerviewItemBinding,
-                     private val setMediaPlayer : (String) -> MediaPlayer) : RecyclerView.ViewHolder(binding.root){
+                     private val setMediaPlayer : (String) -> MediaPlayer?) : RecyclerView.ViewHolder(binding.root){
 
         var id : Int? = null
         var path : String? = null

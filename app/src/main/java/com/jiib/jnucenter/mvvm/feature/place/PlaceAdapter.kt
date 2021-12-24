@@ -27,14 +27,15 @@ class PlaceAdapter(private val find_listener: (String, String, String, String) -
 
     override fun onBindViewHolder(holder: PlaceViewHolder, position: Int) {
         getItem(position)?.let {
-            holder.bind(it)
+            holder.bind(it, find_listener)
         }
     }
 
-    inner class PlaceViewHolder(private val binding:PlaceRecyclerviewItemBinding)
+    // 메모리릭 피하기 위해 중첩클래스로 선언
+    class PlaceViewHolder(private val binding:PlaceRecyclerviewItemBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: PlaceDTO?){
+        fun bind(item: PlaceDTO?, find_listener: (String, String, String, String) -> Unit){
             binding.placeRecyclerviewTitle.text = item?.school_department
             binding.placeLocationButton.setOnClickListener {
 
@@ -46,8 +47,6 @@ class PlaceAdapter(private val find_listener: (String, String, String, String) -
                 find_listener(item.school_places, latitude, longitude, item.school_way)
             }
         }
-
-
     }
 
     companion object {

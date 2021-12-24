@@ -160,7 +160,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // 서치뷰 intent 설정
+        // 서치뷰 검색 시 작업
         binding.mainSearchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
                 return true
@@ -168,10 +168,10 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
                 val intent = Intent(this@MainActivity, NumberActivity::class.java)
+                intent.putExtra("query", query)
                 startActivity(intent)
                 return true
             }
-
         })
     }
 

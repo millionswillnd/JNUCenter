@@ -17,7 +17,6 @@ class LectureDateRepository {
     fun getLectureDates() : List<LectureDTO>?{
 
         var list : List<LectureDTO>? = null
-
         val response : Call<List<LectureDTO>> = lecture_service.getLectureDate()
         list = response.execute().body()
 

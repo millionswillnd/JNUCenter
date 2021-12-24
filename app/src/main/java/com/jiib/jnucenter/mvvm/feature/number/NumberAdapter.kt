@@ -19,11 +19,10 @@ import com.jiib.jnucenter.mvvm.utils.TextUtils
 class NumberAdapter(val context: Context, val textUtils: TextUtils)
     : PagingDataAdapter<NumbersDTO, NumberAdapter.NumberViewHolder>(DIFF_UTIL){
 
-
-    // 초성, 초깃값에 의미는 없다
-    var first_consonant: Char = 'n'
+    // 초깃값 초성
+    var first_consonant: Char = ' '
     // 이전 아이템의 초성
-    var before_consonant: Char = 'a'
+    var before_consonant: Char = ' '
     var before_item : NumbersDTO? = null
 
 
@@ -45,6 +44,7 @@ class NumberAdapter(val context: Context, val textUtils: TextUtils)
     }
 
 
+    // 차후 중첩클래스나 최상위 클래스로 다시 수정(메모리릭)
     inner class NumberViewHolder(
         private val binding : NumberRecyclerviewItemBinding
     ) : RecyclerView.ViewHolder(binding.root){

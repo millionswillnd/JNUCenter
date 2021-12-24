@@ -10,6 +10,7 @@ class PlaceService {
     private val retrofit_client = RetrofitClient
 
 
+    // 검색어에 해당하는 장소 목록을 가져온다
     suspend fun getPlaceByName(name: String, page_index: Int) : List<PlaceDTO> {
         var places : List<PlaceDTO>
         val client = retrofit_client.getInstance()
@@ -22,6 +23,7 @@ class PlaceService {
         return places
     }
 
+    // 전체 장소 목록을 가져온다
     suspend fun getPlaces(page_index: Int) : List<PlaceDTO>{
         var places : List<PlaceDTO>
         val client = retrofit_client.getInstance()

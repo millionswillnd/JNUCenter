@@ -23,10 +23,12 @@ class PlaceViewModel : ViewModel() {
     val way : MutableLiveData<String> = MutableLiveData()
 
 
+    // 검색어로 장소 찾기 리파지토리 api 요청
     suspend fun getPlaceByName(name:String) : Flow<PagingData<PlaceDTO>> {
         return repository.getPlaceByName(name).cachedIn(viewModelScope)
     }
 
+    // 전체 장소 목록 리파지토리 api 요청
     suspend fun getPlaces() : Flow<PagingData<PlaceDTO>> {
         return repository.getPlaces().cachedIn(viewModelScope)
     }

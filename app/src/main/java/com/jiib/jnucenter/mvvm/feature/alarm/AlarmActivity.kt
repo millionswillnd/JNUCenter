@@ -117,8 +117,6 @@ class AlarmActivity : AppCompatActivity() {
             }
         }
 
-
-
         // 백 버튼 리스너
         binding.alarmBackButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -126,17 +124,5 @@ class AlarmActivity : AppCompatActivity() {
         }
 
 
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 }

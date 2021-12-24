@@ -36,12 +36,15 @@ class SplashActivity : AppCompatActivity() {
         }, 2500)
     }
 
+    override fun onStop() {
+        super.onStop()
+        handler = null
+        anim = null
+    }
 
     override fun onDestroy() {
         super.onDestroy()
-
-        // 메모리 해제
-        handler = null
-        anim = null
+        if(handler!=null) handler = null
+        if(anim!=null) anim = null
     }
 }

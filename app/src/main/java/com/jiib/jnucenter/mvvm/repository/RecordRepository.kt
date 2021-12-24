@@ -43,16 +43,24 @@ class RecordRepository(application: Application) {
 
     // 특정 녹음파일을 db와 내부저장소에서 삭제한다
     fun deleteRecord(id:Int){
+        var path : String = ""
         // 둘의 순서 주의
-        val path = record_dao.getRecordPath(id)
-        record_dao.deleteRecord(id)
+        CoroutineScope(Dispatchers.IO).launch {
+            val job = launch {
+                path = record_dao.getRecordPath(id)
+                record_dao.deleteRecord(id)
+            }
 
-        // 내부저장소에서도 삭제
-        val file = File(path)
-        if (file.exists()){
-            if (file.delete()) Log.d("파일 삭제 :", "성공")
-            else Log.d("파일 삭제 :", "실패")
-        } else Log.d("파일 삭제 :", "파일이 없습니다")
+            launch {
+                job.join()
+                // 내부저장소에서도 삭제
+                val file = File(path)
+                if (file.exists()){
+                    if (file.delete()) Log.d("파일 삭제 :", "성공")
+                    else Log.d("파일 삭제 :", "실패")
+                } else Log.d("파일 삭제 :", "파일이 없습니다")
+            }
+        }
     }
 
     //구글 로그인 유저 최근 로그인 계정 여부 리턴

@@ -19,7 +19,7 @@ class BoardActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityBoardBinding
     lateinit var viewmodel : BoardViewModel
-    lateinit var view_list : List<CustomNewsTitle>
+    private var view_list : List<CustomNewsTitle>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,8 +59,8 @@ class BoardActivity : AppCompatActivity() {
             var i = 0
 
             for((title, link) in it){
-                view_list.get(i).title!!.text = title
-                view_list.get(i).setOnClickListener {
+                view_list!!.get(i).title!!.text = title
+                view_list!!.get(i).setOnClickListener {
                     val intent = Intent()
                     intent.setAction(Intent.ACTION_VIEW)
                     intent.addCategory(Intent.CATEGORY_BROWSABLE)
@@ -69,7 +69,7 @@ class BoardActivity : AppCompatActivity() {
                 }
                 ++i
             }
-     4   })
+        })
 
         // 백 버튼 리스너
         binding.boardBackButton.setOnClickListener {
@@ -78,5 +78,35 @@ class BoardActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        if (view_list == null){
+            view_list = listOf(
+                binding.mainMeetingTitle1,
+                binding.mainMeetingTitle2,
+                binding.mainMeetingTitle3,
+                binding.mainMeetingTitle4,
+                binding.mainMeetingTitle5,
+                binding.mainMeetingTitle6,
+                binding.mainMarketTitle1,
+                binding.mainMarketTitle2,
+                binding.mainMarketTitle3,
+                binding.mainMarketTitle4,
+                binding.mainMarketTitle5,
+                binding.mainMarketTitle6
+            )
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        view_list = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (view_list!=null) view_list = null
     }
 }

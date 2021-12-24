@@ -18,16 +18,21 @@ import net.daum.mf.map.api.MapPoint
 
 class PlaceMapFragment : Fragment() {
 
-    lateinit var binding : PlaceKakaomapFragmentBinding
+    private var binding : PlaceKakaomapFragmentBinding? = null
     lateinit var place_viewmodel : PlaceViewModel
-    private var kakao_map_view : MapView? = null
 
+    // view가 초기화중이기에 여기서 작업 시 충돌 가능성
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.place_kakaomap_fragment, container, false)
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         place_viewmodel = ViewModelProvider(requireActivity()).get(PlaceViewModel::class.java)
 
         // 카카오맵 세팅
@@ -37,7 +42,7 @@ class PlaceMapFragment : Fragment() {
             place_viewmodel.longitude.value!!.toDouble()
         )
         // 커스텀 말풍선 어댑터 세팅
-        binding.kakaoMapview.setCalloutBalloonAdapter(CustomBalloonAdapter(layoutInflater, place_viewmodel))
+        binding?.kakaoMapview?.setCalloutBalloonAdapter(CustomBalloonAdapter(layoutInflater, place_viewmodel))
         // 지도 위에 정보를 표시할 POI 객체
         val marker = MapPOIItem()
         marker.apply {
@@ -48,7 +53,7 @@ class PlaceMapFragment : Fragment() {
             selectedMarkerType = MapPOIItem.MarkerType.RedPin
         }
         // 세팅
-        binding.kakaoMapview.apply {
+        binding?.kakaoMapview?.apply {
             // 클릭한 장소의 정보값으로 세팅한 뷰모델 변수들로 위치 설정
             setMapCenterPoint(map_point, true)
             // 줌 설정
@@ -56,13 +61,12 @@ class PlaceMapFragment : Fragment() {
             zoomIn(true)
             addPOIItem(marker)
         }
-
-        return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    // 메모리 해제
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }
 

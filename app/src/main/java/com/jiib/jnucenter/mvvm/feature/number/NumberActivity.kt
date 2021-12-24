@@ -74,23 +74,24 @@ class NumberActivity : AppCompatActivity() {
                 adapter.submitData(it)
             }
         }
+
+
+        // 메인액티비티에서 넘어온 검색 쿼리로 초기 화면을 설정한다
+        binding.numberSearchView.setQuery(intent.getStringExtra("query"), true)
     }
 
     override fun onRestart() {
         super.onRestart()
-
         text_utils = TextUtils()
     }
 
     override fun onStop() {
         super.onStop()
-
         text_utils = null
     }
 
     override fun onDestroy() {
         super.onDestroy()
-
         if (text_utils != null) text_utils = null
     }
 

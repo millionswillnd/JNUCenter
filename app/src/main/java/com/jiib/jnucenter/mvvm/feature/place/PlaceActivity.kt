@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.jiib.jnucenter.R
@@ -40,6 +41,11 @@ class PlaceActivity : AppCompatActivity(), FragListener {
 
         viewmodel = ViewModelProvider(this).get(PlaceViewModel::class.java)
         initFragment()
+
+        viewmodel.latitude.observe(this, Observer {
+            Log.d("변화", "$it")
+        })
+
 
         // 검색 필터
         binding.placeSearchTitle.setOnQueryTextListener(object : SearchView.OnQueryTextListener{

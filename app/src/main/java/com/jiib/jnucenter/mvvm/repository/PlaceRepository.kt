@@ -14,6 +14,7 @@ class PlaceRepository {
     val place_service = PlaceService()
 
 
+    // 검색어에 해당하는 장소목록 paging으로 데려오기
     suspend fun getPlaceByName(name: String) : Flow<PagingData<PlaceDTO>> {
         return Pager(
             config = PagingConfig(pageSize = 12),
@@ -21,6 +22,7 @@ class PlaceRepository {
         ).flow
     }
 
+    // 전체 장소목록 paging으로 데려오기
     suspend fun getPlaces() : Flow<PagingData<PlaceDTO>> {
         return Pager(
             config = PagingConfig(pageSize = 12),

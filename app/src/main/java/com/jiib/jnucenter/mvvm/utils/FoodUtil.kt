@@ -8,6 +8,7 @@ import java.util.*
 
 class FoodUtil {
 
+    // 현재 날짜 구하기
     fun getNowDate() : String {
 
         var now_date: String = ""

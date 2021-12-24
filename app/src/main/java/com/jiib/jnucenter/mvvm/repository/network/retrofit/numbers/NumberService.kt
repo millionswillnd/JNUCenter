@@ -9,7 +9,7 @@ class NumberService{
 
     private val retrofit_client = RetrofitClient
 
-
+    // 장소 전체 목록 get
     suspend fun getNumbers(page_index : Int) : List<NumbersDTO>? {
         val client : Retrofit = retrofit_client.getInstance()
         var numbers : List<NumbersDTO>? = null

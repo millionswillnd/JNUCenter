@@ -98,24 +98,26 @@ class RecordActivity : AppCompatActivity() {
 
         // 다중 삭제 구현
         binding.recordSaveButton.setOnClickListener {
-
+            // 체크 갯수가 0인 경우
             if (check_list!!.isEmpty()){
                 Toast.makeText(this, "삭제할 아이템을 골라주세요!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+            // db에서 해당 row 삭제하고, 내부저장소에서도 파일 삭제한 후 ui 업데이트
             CoroutineScope(Dispatchers.IO).launch {
                 val job = launch {
                     for(id in check_list!!){
-                        viewmodel.deleteRecord(id)
-                        viewmodel.getAllRecords()
+                            viewmodel.deleteRecord(id)
                     }
                 }
 
                 withContext(Dispatchers.Main){
                     job.join()
                     Toast.makeText(this@RecordActivity, "성공적으로 삭제되었습니다!", Toast.LENGTH_LONG).show()
-                    adapter.notifyDataSetChanged()
+                    launch(Dispatchers.IO) {
+                        viewmodel.getAllRecords()
+                    }
                 }
             }
         }
@@ -342,12 +344,12 @@ class RecordActivity : AppCompatActivity() {
     }
 
     // adpater에서 재생 버튼 누를 시 새로운 값으로 다시 변수들 세팅
-    private fun changeRecordPath(path : String): MediaPlayer{
+    private fun changeRecordPath(path : String): MediaPlayer? {
         record_path.setLength(0)
         record_path.append(path)
         media_player = MediaPlayer.create(this@RecordActivity, Uri.parse(record_path.toString()))
 
-        return media_player!!
+        return media_player
     }
 
     // 리파지토리 레이어에서 구글 로그인 api 수행시 액티비티에 google sign-in 클라이언트 객체 할당 하기 위한 함수

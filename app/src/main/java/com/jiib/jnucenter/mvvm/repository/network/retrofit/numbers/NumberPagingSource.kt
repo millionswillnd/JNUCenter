@@ -21,6 +21,7 @@ class NumberPagingSource(
         val page_index = params.key ?: STARTING_INDEX
         return try {
 
+            // 검색x. 전체 목록
             if (isSearch == "false"){
                 numbers = number_service.getNumbers(page_index)!!
             }
