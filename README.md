@@ -6,17 +6,17 @@
 
 # Preview
 <p align="left">
-<img src="https://user-images.githubusercontent.com/82270774/147670764-182f1e28-01c3-42f7-b0cb-89f5882f5a8e.png" width="22%"/>
-<img src="https://user-images.githubusercontent.com/82270774/147670545-3bad463f-2494-4e96-b0d1-c40f5e16652b.png" width="22%"/>
-<img src="https://user-images.githubusercontent.com/82270774/147673166-026ff0c2-bbb8-4f62-b8e2-97776d07367e.png" width="22%"/>
-<img src="https://user-images.githubusercontent.com/82270774/147740298-b9e468b0-ec45-47d4-a44e-b00f5007cf74.png" width="22%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147670764-182f1e28-01c3-42f7-b0cb-89f5882f5a8e.png" width="23%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147670545-3bad463f-2494-4e96-b0d1-c40f5e16652b.png" width="23%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147673166-026ff0c2-bbb8-4f62-b8e2-97776d07367e.png" width="23%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147740298-b9e468b0-ec45-47d4-a44e-b00f5007cf74.png" width="23%"/>
 </p>
 </br>
 <p align="left">
-<img src="https://user-images.githubusercontent.com/82270774/147674058-326d687c-9aa5-484b-8bf6-317bb17fbbd3.png" width="22%"/>
-<img src="https://user-images.githubusercontent.com/82270774/147675505-5306fd56-2fcd-47f1-b3f0-123c39584976.png" width="22%"/>
-<img src="https://user-images.githubusercontent.com/82270774/147675699-b1ae4fa1-12c5-4869-bca1-83d4ad3552f6.png" width="22%"/>
-<img src="https://user-images.githubusercontent.com/82270774/147675841-6383c1f0-7c1e-42f6-aee9-cda0008b0c40.png" width="22%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147674058-326d687c-9aa5-484b-8bf6-317bb17fbbd3.png" width="23%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147675505-5306fd56-2fcd-47f1-b3f0-123c39584976.png" width="23%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147675699-b1ae4fa1-12c5-4869-bca1-83d4ad3552f6.png" width="23%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147675841-6383c1f0-7c1e-42f6-aee9-cda0008b0c40.png" width="23%"/>
 </p>
 
 </br>
