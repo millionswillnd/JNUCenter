@@ -87,8 +87,7 @@
 
 ### 4.1.2 전체 흐름
 
-
-  
+<img src="https://user-images.githubusercontent.com/82270774/147748458-6e836efa-d498-4cde-958d-a0f05e87d3f0.PNG" width="100%"/>
   
   
 
