@@ -95,7 +95,9 @@
 
 <img src="https://user-images.githubusercontent.com/82270774/147756579-7ca26ac4-48fe-4d2a-bd0e-2beac503a554.PNG" width="100%"/>
 </br>
+</br>
 
-- **getPlacesByName** :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/2a2d1546f7cf16967eef30f6c71b8ad664fdc9ac/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceActivity.kt#L65)
+- **getPlacesByName 함수** :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/2a2d1546f7cf16967eef30f6c71b8ad664fdc9ac/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceActivity.kt#L65)
   - PlaceViewModel의 getPlacesByName 함수를 호출합니다. 
   - 검색어가 변할 때 마다 실행됩니다. 
+
