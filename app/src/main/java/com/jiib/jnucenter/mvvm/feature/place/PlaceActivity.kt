@@ -45,7 +45,8 @@ class PlaceActivity : AppCompatActivity(), FragListener {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_place)
 
         // 뷰모델 초기화
-        viewmodel = ViewModelProvider(this).get(PlaceViewModel::class.java)
+        viewmodel = ViewModelProvider(this, PlaceViewModel.Factory(application))
+            .get(PlaceViewModel::class.java)
 
         // 프래그먼트 초기화
         initFragment()

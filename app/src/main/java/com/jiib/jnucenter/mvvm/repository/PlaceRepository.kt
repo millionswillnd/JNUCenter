@@ -13,11 +13,13 @@ import com.jiib.jnucenter.mvvm.repository.network.retrofit.numbers.NumberPagingS
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.place.PlaceDTO
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.place.PlacePagingSource
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.place.PlaceService
+import com.jiib.jnucenter.mvvm.utils.PlaceUtil
 import kotlinx.coroutines.flow.Flow
 
 class PlaceRepository {
 
     val place_service = PlaceService()
+    val place_util = PlaceUtil()
 
 
     // 검색어에 해당하는 장소목록 paging으로 데려오기
@@ -39,18 +41,16 @@ class PlaceRepository {
 
     // 사용자 현재 위치 리턴
     fun getCurrentPosition(context: Context) : Array<Double> {
-        val loc_manager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        val loc_provider = LocationManager.GPS_PROVIDER
-        var current_loc : Location? = null
+        return place_util.getCurrentPosition(context)
+    }
 
-        // 해당 메서드는 권한 설정된 스코프에서만 호출 가능
-        if (ContextCompat.checkSelfPermission(
-                context,
-                Manifest.permission.ACCESS_FINE_LOCATION,
-            ) == PackageManager.PERMISSION_GRANTED) {
-            current_loc = loc_manager.getLastKnownLocation(loc_provider)
-        }
+    // 두 지점의 위경도 차이로 거리를 계산해 리턴
+    fun getDistance(latitude_one: Double, latitude_two: Double, longitude_one: Double, longitude_two: Double) : Double{
+        return place_util.getDistance(latitude_one, latitude_two, longitude_one, longitude_two)
+    }
 
-        return arrayOf(current_loc!!.latitude, current_loc.longitude )
+    // 거리를 보행 시간으로 변환해 리턴
+    fun getTimeByDistance(distance: Double) : Array<Double?>{
+        return place_util.getTimeByDistance(distance)
     }
 }

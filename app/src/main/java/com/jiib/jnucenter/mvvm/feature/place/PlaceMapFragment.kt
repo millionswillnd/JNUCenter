@@ -45,7 +45,7 @@ class PlaceMapFragment : Fragment() {
         )
 
         // 현재 위치 위경도 구하기
-        place_viewmodel.getCurrentLocation(requireContext())
+        place_viewmodel.getCurrentLocation()
 
         // 커스텀 말풍선 어댑터 세팅
         binding?.kakaoMapview?.setCalloutBalloonAdapter(CustomBalloonAdapter(layoutInflater, place_viewmodel))
@@ -101,12 +101,12 @@ class CustomBalloonAdapter(inflater: LayoutInflater, private val viewmodel :Plac
         way.text = viewmodel.way.value
 
         // 걸리는 시간 구하기
-        val dist = util.getDistance(viewmodel.current_latitutde.value!!.toDouble(),
+        val dist = viewmodel.getDistance(viewmodel.current_latitutde.value!!.toDouble(),
             viewmodel.latitude.value!!.toDouble(),
             viewmodel.current_longitude.value!!.toDouble(),
-            viewmodel.longitude.value!!.toDouble()
-        )
-        val taking_time = util.getTimeByDistance(dist)
+            viewmodel.longitude.value!!.toDouble())
+        val taking_time = viewmodel.getTimeByDistance(dist)
+
         // 소수점 첫째자리에서 반올림해줘서 넣어준다.
         time.text = "걸어가면 ${String.format("%.0f", taking_time[0])}분, 뛰어가면 ${String.format("%.0f", taking_time[1])}분"
 

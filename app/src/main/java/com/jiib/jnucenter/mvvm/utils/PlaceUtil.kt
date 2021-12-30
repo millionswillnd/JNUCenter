@@ -1,6 +1,12 @@
 package com.jiib.jnucenter.mvvm.utils
 
+import android.Manifest
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import android.util.Log
+import androidx.core.content.ContextCompat
 
 /*
 *     지도 액티비티에서 쓰일 Util Class
@@ -45,5 +51,23 @@ class PlaceUtil {
         time_array[1] = (distance/300)
 
         return time_array
+    }
+
+
+    // 사용자 현재 위치 리턴
+    fun getCurrentPosition(context: Context) : Array<Double> {
+        val loc_manager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val loc_provider = LocationManager.GPS_PROVIDER
+        var current_loc : Location? = null
+
+        // 해당 메서드는 권한 설정된 스코프에서만 호출 가능
+        if (ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            ) == PackageManager.PERMISSION_GRANTED) {
+            current_loc = loc_manager.getLastKnownLocation(loc_provider)
+        }
+
+        return arrayOf(current_loc!!.latitude, current_loc.longitude )
     }
 }
