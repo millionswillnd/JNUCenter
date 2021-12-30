@@ -90,6 +90,10 @@
 
 <img src="https://user-images.githubusercontent.com/82270774/147748458-6e836efa-d498-4cde-958d-a0f05e87d3f0.PNG" width="100%"/>
   
-  
+</br>  
+### 4.3 사용자 장소 검색
 
+<img src="https://user-images.githubusercontent.com/82270774/147756579-7ca26ac4-48fe-4d2a-bd0e-2beac503a554.PNG" width="100%"/>
+
+</br>
 
