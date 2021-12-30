@@ -53,19 +53,27 @@ class RecordActivity : AppCompatActivity() {
     lateinit var recycler_view : RecyclerView
     lateinit var adapter : RecordAdapter
     private var recorder : MediaRecorder? = null
-    // 녹음 전 상태로 state 세팅
-    private var state = RecordState.BEFORE_RECORDING
+    /*
+     *  녹음 관련 변수들
+     */
+    private var state: RecordState? = RecordState.BEFORE_RECORDING
     lateinit var file_path : String
-    private var record_util = RecordUtil()
+    private var record_util : RecordUtil? = RecordUtil()
     private var timer : Timer? = null
     private var dialog: Dialog? = null
     private var check_list : ArrayList<Int>? = null
-    // 음악 재생 관련
+    /*
+     *  재생 관련 코드
+     */
     private var media_player : MediaPlayer? = null
-    private var record_path : StringBuffer = StringBuffer("")
-    // 구글 로그인 + 드라이브 관련
+    private var record_path : StringBuffer? = StringBuffer("")
+    /*
+     *  구글로그인 + 드라이브 관련
+     */
     private var result_launcher : ActivityResultLauncher<Intent>? = null
     private var google_sign_in_client : GoogleSignInClient? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -150,7 +158,7 @@ class RecordActivity : AppCompatActivity() {
                     recorder!!.apply {
                         // 세팅
                         file_path = File(directory, System.currentTimeMillis().toString()).canonicalPath
-                        record_util.setRecordSettings(recorder!!, file_path)
+                        record_util?.setRecordSettings(recorder!!, file_path)
                         // 녹음 시작
                         prepare()
                         start()
@@ -306,20 +314,50 @@ class RecordActivity : AppCompatActivity() {
         }
     }
 
+
+    override fun onRestart() {
+        super.onRestart()
+        if (recorder == null) MediaRecorder()
+        if (state == null) state = RecordState.BEFORE_RECORDING
+        if (record_util == null) record_util = RecordUtil()
+        if (check_list == null) check_list = ArrayList<Int>()
+        if (record_path == null) record_path = StringBuffer("")
+    }
+
     override fun onPause() {
+        // 구글 로그아웃
         super.onPause()
         google_sign_in_client?.signOut()
     }
 
     override fun onStop() {
         super.onStop()
+        // 구글 로그아웃
         google_sign_in_client?.signOut()
+        // 메모리 해제
+        recorder = null
+        state = null
+        record_util = null
+        timer = null
+        dialog = null
+        check_list = null
+        record_path = null
     }
 
 
     override fun onDestroy() {
         super.onDestroy()
+        // 구글 로그아웃
         google_sign_in_client?.signOut()
+        // 메모리 해제
+        recorder = null
+        state = null
+        record_util = null
+        timer = null
+        dialog = null
+        check_list = null
+        record_path = null
+        google_sign_in_client = null
     }
 
 
@@ -345,8 +383,8 @@ class RecordActivity : AppCompatActivity() {
 
     // adpater에서 재생 버튼 누를 시 새로운 값으로 다시 변수들 세팅
     private fun changeRecordPath(path : String): MediaPlayer? {
-        record_path.setLength(0)
-        record_path.append(path)
+        record_path?.setLength(0)
+        record_path?.append(path)
         media_player = MediaPlayer.create(this@RecordActivity, Uri.parse(record_path.toString()))
 
         return media_player

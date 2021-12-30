@@ -63,7 +63,6 @@ class NumberAdapter(val context: Context, val textUtils: TextUtils)
             // 이전 아이템의 초성과 일치하지 않거나, 시작 아이템인경우 자음 섹션을 추가
             if((first_consonant != before_consonant) || (layoutPosition == 0)){
                 binding.consonantConst.visibility = View.VISIBLE
-                Log.d("초성", "${item.consonant}")
                 binding.consonant.text = item.consonant
                 before_consonant = first_consonant
             } else binding.consonantConst.visibility = View.GONE

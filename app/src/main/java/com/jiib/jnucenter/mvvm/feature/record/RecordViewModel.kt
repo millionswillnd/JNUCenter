@@ -24,7 +24,7 @@ class RecordViewModel(application: Application) : AndroidViewModel(application) 
         repository.getAllRecords()
     }
 
-    suspend fun deleteRecord(id:Int){
+    fun deleteRecord(id:Int){
         repository.deleteRecord(id)
     }
 

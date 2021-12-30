@@ -16,7 +16,7 @@
         android:layout_height="0dp"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:background="@color/food_constview_green"
+        android:background="@color/white"
         app:queryHint="부서,건물명을 입력해주세요"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

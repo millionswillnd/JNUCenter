@@ -12,10 +12,8 @@ class RetrofitClient {
     companion object{
 
         private var instance : Retrofit? = null
-        // 추후 실제 서버 base url로 수정 + string에 넣자
-        private const val BASE_URL = "http://172.30.1.48:8080"
-        // aws에 올린 주소
-        // private const val BASE_URL = "http://3.23.52.39:8080"
+        // aws 서버 도메인 주소
+        private const val BASE_URL = "https://jcent16.site"
 
         // 로깅용 인터셉터
         val interceptor = HttpLoggingInterceptor().apply{

@@ -10,6 +10,9 @@ import android.view.animation.AnimationUtils
 import androidx.databinding.DataBindingUtil
 import com.jiib.jnucenter.databinding.ActivitySplashBinding
 import com.jiib.jnucenter.mvvm.feature.main.MainActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity() {
 
