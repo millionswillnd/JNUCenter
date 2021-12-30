@@ -76,7 +76,12 @@
 </br>
 
 <details>
-<summary><b>핵심 기능 설명 펼치기</b></summary>
-ㅎㅇ  
+<summary><b>부서명으로 장소 찾기</b></summary>
+### 4.1.1 전체 흐름 
+</br>
+ㄹㅇㅋㅋ
+  
+  
+  
 
 
