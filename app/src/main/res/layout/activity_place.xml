@@ -17,6 +17,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:background="@color/white"
+        app:searchIcon="@drawable/place_icon_search"
         app:queryHint="부서,건물명을 입력해주세요"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

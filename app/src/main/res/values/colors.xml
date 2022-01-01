@@ -13,6 +13,8 @@
     <color name="red">#FF0000</color>
     <color name="main_color_green">#2ECC71</color>
     <color name="lecture_custom_bright_green">#A5D6A7</color>
+    <color name="switch_bright_green">#BDF3BF</color>
+    <color name="switch_grey">#ECE9E9</color>
     <color name="lecture_custom_red">#F48FB1</color>
     <color name="main_icon_color_green_bold">#39802c</color>
     <color name="skyblue">#81D4FA</color>

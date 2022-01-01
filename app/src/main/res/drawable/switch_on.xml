@@ -8,12 +8,12 @@
         ></corners>
 
     <size
-        android:width="41dp"
-        android:height="20dp"
+        android:width="43dp"
+        android:height="22dp"
         ></size>
 
     <solid
-        android:color="@color/lecture_custom_bright_green"
+        android:color="@color/switch_bright_green"
         ></solid>
 
 </shape>
