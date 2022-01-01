@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface PlaceApi {
 
     // 특정 글자를 포함한 건물 리스트 리퀘스트
-    @GET("/place/list/search")
+    @GET("/place/search/list")
     fun getPlacesByName(
         @Query("name") name: String,
         @Query("page_index") page_index : Int
