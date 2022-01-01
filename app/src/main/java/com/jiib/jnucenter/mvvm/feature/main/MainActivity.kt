@@ -27,12 +27,12 @@ import kotlinx.coroutines.*
  */
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityMainBinding
+    private lateinit var binding : ActivityMainBinding
     // 구글 ads 관련
     private var adRequest : AdRequest? = null
-    lateinit var viewPager : ViewPager2
-    lateinit var viewModel : MainViewModel
-    var weather_util : WeatherUtil? = null
+    private lateinit var viewPager : ViewPager2
+    private lateinit var viewModel : MainViewModel
+    private var weather_util : WeatherUtil? = null
     // 뉴스 리스트를 담을 배열
     private var view_title_list : List<CustomNewsTitle>? = null
 

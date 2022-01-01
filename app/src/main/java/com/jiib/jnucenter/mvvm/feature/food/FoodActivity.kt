@@ -19,8 +19,8 @@ import kotlinx.coroutines.launch
  */
 class FoodActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityFoodBinding
-    lateinit var viewmodel: FoodViewModel
+    private lateinit var binding: ActivityFoodBinding
+    private lateinit var viewmodel: FoodViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

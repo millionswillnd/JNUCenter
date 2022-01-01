@@ -10,7 +10,7 @@ import com.jiib.jnucenter.mvvm.repository.network.retrofit.board.BoardDTO
  */
 class BoardViewModel : ViewModel() {
 
-    val repositry = BoardRepository()
+    private val repositry = BoardRepository()
 
     // 각 게시판의 글 title과 url을 담은 LiveData
     val board_list : MutableLiveData<List<BoardDTO>>

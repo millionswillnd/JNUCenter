@@ -14,7 +14,7 @@ import com.jiib.jnucenter.mvvm.feature.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivitySplashBinding
+    private lateinit var binding : ActivitySplashBinding
     private var handler : Handler? = null
     private var anim: Animation? = null
 

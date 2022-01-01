@@ -35,10 +35,10 @@ import java.security.Signature
 
 class PlaceActivity : AppCompatActivity(), FragListener {
 
-    lateinit var binding : ActivityPlaceBinding
-    lateinit var viewmodel : PlaceViewModel
-    lateinit var search_fragment : PlaceSearchFragment
-    lateinit var kakaomap_fragment : PlaceMapFragment
+    private lateinit var binding : ActivityPlaceBinding
+    private lateinit var viewmodel : PlaceViewModel
+    private lateinit var search_fragment : PlaceSearchFragment
+    private lateinit var kakaomap_fragment : PlaceMapFragment
     // 맵에서 검색 기능 사용 시 프래그먼트 전환을 위한 플래그
     var map_flag : Boolean = false
     // 권한설정 REQUEST CODE

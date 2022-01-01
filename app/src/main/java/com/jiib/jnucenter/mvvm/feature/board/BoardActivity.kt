@@ -20,8 +20,8 @@ import kotlinx.coroutines.launch
  */
 class BoardActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityBoardBinding
-    lateinit var viewmodel : BoardViewModel
+    private lateinit var binding : ActivityBoardBinding
+    private lateinit var viewmodel : BoardViewModel
     // 뉴스 커스텀뷰를 순차 처리하기 위한 리스트
     private var view_list : List<CustomNewsTitle>? = null
 

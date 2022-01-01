@@ -10,7 +10,7 @@ import com.jiib.jnucenter.mvvm.repository.MainRepository
 class MainViewModel : ViewModel() {
 
     // Repository
-    val mainRepository : MainRepository = MainRepository()
+    private val mainRepository : MainRepository = MainRepository()
 
     // 날씨 상태, 섭씨온도 값
     val weather_description : MutableLiveData<String>

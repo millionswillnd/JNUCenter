@@ -23,10 +23,10 @@ class NumberAdapter(val context: Context, val textUtils: TextUtils)
     : PagingDataAdapter<NumbersDTO, NumberAdapter.NumberViewHolder>(DIFF_UTIL){
 
     // 초깃값 초성
-    var first_consonant: Char = ' '
+    private var first_consonant: Char? = null
     // 이전 아이템의 초성
-    var before_consonant: Char = ' '
-    var before_item : NumbersDTO? = null
+    private var before_consonant: Char? = null
+    private var before_item : NumbersDTO? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumberViewHolder {

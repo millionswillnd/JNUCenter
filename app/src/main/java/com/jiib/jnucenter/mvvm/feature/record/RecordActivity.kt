@@ -45,13 +45,17 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.timer
 
+/**
+ *   녹음 관련 액티비티
+ */
+
 class RecordActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityRecordBinding
-    lateinit var viewmodel : RecordViewModel
+    private lateinit var binding : ActivityRecordBinding
+    private lateinit var viewmodel : RecordViewModel
     private val RECORD_PERMISSION_CODE = 101
-    lateinit var recycler_view : RecyclerView
-    lateinit var adapter : RecordAdapter
+    private lateinit var recycler_view : RecyclerView
+    private lateinit var adapter : RecordAdapter
     private var recorder : MediaRecorder? = null
     /*
      *  녹음 관련 변수들

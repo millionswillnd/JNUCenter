@@ -26,9 +26,9 @@ import kotlinx.coroutines.withContext
 class PlaceSearchFragment : Fragment() {
 
     private var binding : PlaceRecyclerviewFragmentBinding? = null
-    lateinit var place_viewmodel : PlaceViewModel
-    lateinit var adapter: PlaceAdapter
-    lateinit var recycler_view : RecyclerView
+    private lateinit var place_viewmodel : PlaceViewModel
+    private lateinit var adapter: PlaceAdapter
+    private lateinit var recycler_view : RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,

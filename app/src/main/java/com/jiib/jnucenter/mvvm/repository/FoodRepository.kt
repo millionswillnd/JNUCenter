@@ -17,9 +17,9 @@ import retrofit2.Response
 class FoodRepository {
 
     // Retrofit Service
-    val food_service = FoodService()
+    private val food_service = FoodService()
     // 유틸 클래스
-    val food_util = FoodUtil()
+    private val food_util = FoodUtil()
 
     // 식당별 학식 리스트를 담은 LiveData
     val food_list = MutableLiveData<List<FoodDTO>>()

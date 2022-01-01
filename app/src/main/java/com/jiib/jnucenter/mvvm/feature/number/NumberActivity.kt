@@ -22,10 +22,10 @@ import kotlinx.coroutines.launch
  */
 class NumberActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityNumberBinding
-    lateinit var adapter: NumberAdapter
-    lateinit var number_viewmodel : NumberViewModel
-    var text_utils : TextUtils? = null
+    private lateinit var binding : ActivityNumberBinding
+    private lateinit var adapter: NumberAdapter
+    private lateinit var number_viewmodel : NumberViewModel
+    private var text_utils : TextUtils? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

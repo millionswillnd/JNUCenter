@@ -19,12 +19,12 @@ import kotlinx.coroutines.*
 class LectureDateActivity : AppCompatActivity() {
 
 
-    lateinit var binding : ActivityLectureDateBinding
-    lateinit var adapter : LectureAdapter
-    lateinit var lecture_viewModel: LectureDateViewModel
+    private lateinit var binding : ActivityLectureDateBinding
+    private lateinit var adapter : LectureAdapter
+    private lateinit var lecture_viewModel: LectureDateViewModel
     // 유틸클래스 및 dto 담은 리스트
-    var lecture_util : LectureUtil? = null
-    var lecture_list : List<LectureDTO>? = null
+    private var lecture_util : LectureUtil? = null
+    private var lecture_list : List<LectureDTO>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

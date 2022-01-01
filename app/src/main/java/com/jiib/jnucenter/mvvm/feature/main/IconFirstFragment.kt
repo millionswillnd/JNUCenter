@@ -23,8 +23,8 @@ import com.jiib.jnucenter.mvvm.feature.record.RecordActivity
  */
 class IconFirstFragment : Fragment(), View.OnClickListener {
 
-    var binding : MainIconFragOneBinding? = null
-    var mainContext : Context? = null
+    private var binding : MainIconFragOneBinding? = null
+    private var mainContext : Context? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

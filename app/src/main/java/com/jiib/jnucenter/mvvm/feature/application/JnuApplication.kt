@@ -10,7 +10,7 @@ import android.app.NotificationManager
  */
 class JnuApplication : Application() {
 
-    lateinit var notification_manager : NotificationManager
+    private lateinit var notification_manager : NotificationManager
     private val NOTI_CHANNEL_ID = "101"
 
     override fun onCreate() {

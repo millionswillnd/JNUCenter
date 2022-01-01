@@ -22,8 +22,8 @@ import kotlinx.coroutines.withContext
  */
 class AlarmActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityAlarmBinding
-    lateinit var viewmodel : AlarmViewModel
+    private lateinit var binding : ActivityAlarmBinding
+    private lateinit var viewmodel : AlarmViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

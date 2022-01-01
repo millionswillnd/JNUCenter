@@ -17,8 +17,8 @@ import kotlinx.coroutines.flow.Flow
 
 class PlaceRepository {
 
-    val place_service = PlaceService()
-    val place_util = PlaceUtil()
+    private val place_service = PlaceService()
+    private val place_util = PlaceUtil()
 
 
     // 검색어에 해당하는 장소목록 paging data 리턴

@@ -25,7 +25,7 @@ import net.daum.mf.map.api.MapPoint
 class PlaceMapFragment : Fragment() {
 
     private var binding : PlaceKakaomapFragmentBinding? = null
-    lateinit var place_viewmodel : PlaceViewModel
+    private lateinit var place_viewmodel : PlaceViewModel
 
     // view가 초기화중이기에 여기서 작업 시 충돌 가능성
     override fun onCreateView(

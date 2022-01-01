@@ -14,7 +14,7 @@ import retrofit2.Response
 
 class BoardRepository {
 
-    val board_service = BoardService()
+    private val board_service = BoardService()
 
     // 각 게시판의 글 리스트와 url 링크를 담은 LiveData
     val board_list = MutableLiveData<List<BoardDTO>>()
