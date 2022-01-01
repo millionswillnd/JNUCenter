@@ -1,20 +1,19 @@
 package com.jiib.jnucenter.mvvm.repository
 
-import android.Manifest
+
 import android.content.Context
-import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationManager
-import androidx.core.content.ContextCompat
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.jiib.jnucenter.mvvm.repository.network.retrofit.numbers.NumberPagingSource
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.place.PlaceDTO
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.place.PlacePagingSource
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.place.PlaceService
 import com.jiib.jnucenter.mvvm.utils.PlaceUtil
 import kotlinx.coroutines.flow.Flow
+
+/**
+ *   장소 관련 Repository
+ */
 
 class PlaceRepository {
 
@@ -22,19 +21,19 @@ class PlaceRepository {
     val place_util = PlaceUtil()
 
 
-    // 검색어에 해당하는 장소목록 paging으로 데려오기
-    suspend fun getPlaceByName(name: String) : Flow<PagingData<PlaceDTO>> {
+    // 검색어에 해당하는 장소목록 paging data 리턴
+    fun getPlacesByName(name: String) : Flow<PagingData<PlaceDTO>> {
         return Pager(
             config = PagingConfig(pageSize = 12),
-            pagingSourceFactory = { PlacePagingSource(place_service, name, "true")}
+            pagingSourceFactory = { PlacePagingSource(place_service, name, true)}
         ).flow
     }
 
     // 전체 장소목록 paging으로 데려오기
-    suspend fun getPlaces() : Flow<PagingData<PlaceDTO>> {
+    fun getPlaces() : Flow<PagingData<PlaceDTO>> {
         return Pager(
             config = PagingConfig(pageSize = 12),
-            pagingSourceFactory = { PlacePagingSource(place_service, "","false") }
+            pagingSourceFactory = { PlacePagingSource(place_service, "",false) }
         ).flow
     }
 

@@ -5,6 +5,10 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 
+/**
+ *    강의기한 관련 유틸 클래스
+ */
+
 class LectureUtil {
 
     // 강의 퀴즈 등의 기한과 현재 날짜와의 차이를 리턴
@@ -73,7 +77,8 @@ class LectureUtil {
                 }
 
             }
-       } // 8~12월은 홀수달이 30일, 짝수달이 31일이다.
+       }
+       // 8~12월은 홀수달이 30일, 짝수달이 31일이다.
        else {
            if(first_month%2 == 1){
                temp = 30 - first_date

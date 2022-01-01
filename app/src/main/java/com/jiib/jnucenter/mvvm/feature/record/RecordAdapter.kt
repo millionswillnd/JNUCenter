@@ -1,22 +1,20 @@
 package com.jiib.jnucenter.mvvm.feature.record
 
-import android.content.Context
 import android.media.MediaPlayer
-import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.jiib.jnucenter.R
 import com.jiib.jnucenter.databinding.RecordRecyclerviewItemBinding
-import com.jiib.jnucenter.mvvm.feature.lecture.LectureViewHolder
 import com.jiib.jnucenter.mvvm.repository.model.database.room.Records
 import kotlinx.coroutines.*
-import java.lang.StringBuilder
+
+/**
+ *     RecordActivity에서 녹음 저장 리스트 RecyclerView에서 쓸 Adapter
+ */
 
 class RecordAdapter(private val record_list: List<Records>,
                     private val check_list: ArrayList<Int>?,

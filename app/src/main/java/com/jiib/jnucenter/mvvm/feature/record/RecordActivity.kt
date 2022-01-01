@@ -71,7 +71,7 @@ class RecordActivity : AppCompatActivity() {
      *  구글로그인 + 드라이브 관련
      */
     private var result_launcher : ActivityResultLauncher<Intent>? = null
-    private var google_sign_in_client : GoogleSignInClient? = null
+    private var google_sign_client : GoogleSignInClient? = null
 
 
 
@@ -281,7 +281,9 @@ class RecordActivity : AppCompatActivity() {
         binding.recordGoogleBackup.setOnClickListener{
             // 구글에 로그아웃 되어있다면 로그인한다
             if (viewmodel.isUserSignedIn(this) == false){
-                val sign_in_intent = viewmodel.googleSignIn(this, {gso: GoogleSignInOptions -> assignGoogleClient(gso)})
+                val sign_in_intent =
+                    viewmodel.googleSignIn({gso: GoogleSignInOptions ->
+                        assignGoogleClient(gso)})
                 result_launcher!!.launch(sign_in_intent)
             } else {
                 // 구글드라이브에 체크된 녹음 파일들을 업로드
@@ -327,13 +329,13 @@ class RecordActivity : AppCompatActivity() {
     override fun onPause() {
         // 구글 로그아웃
         super.onPause()
-        google_sign_in_client?.signOut()
+        google_sign_client?.signOut()
     }
 
     override fun onStop() {
         super.onStop()
         // 구글 로그아웃
-        google_sign_in_client?.signOut()
+        google_sign_client?.signOut()
         // 메모리 해제
         recorder = null
         state = null
@@ -348,7 +350,7 @@ class RecordActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         // 구글 로그아웃
-        google_sign_in_client?.signOut()
+        google_sign_client?.signOut()
         // 메모리 해제
         recorder = null
         state = null
@@ -357,7 +359,7 @@ class RecordActivity : AppCompatActivity() {
         dialog = null
         check_list = null
         record_path = null
-        google_sign_in_client = null
+        google_sign_client = null
     }
 
 
@@ -390,8 +392,8 @@ class RecordActivity : AppCompatActivity() {
         return media_player
     }
 
-    // 리파지토리 레이어에서 구글 로그인 api 수행시 액티비티에 google sign-in 클라이언트 객체 할당 하기 위한 함수
+    // 리파지토리 레이어에서 구글 로그인 api 수행시 액티비티에 GSO 객체를 할당 하기 위한 함수
     private fun assignGoogleClient(gso : GoogleSignInOptions){
-        google_sign_in_client = GoogleSignIn.getClient(this, gso)
+        google_sign_client = GoogleSignIn.getClient(this, gso)
     }
 }

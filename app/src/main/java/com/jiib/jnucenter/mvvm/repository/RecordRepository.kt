@@ -16,14 +16,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
 
-// 뷰모델에서 안드로이드 context를 건네주면 레이어 특성상 곤란하기에 Application을 건네준다
+/**
+ *   녹음 관련 Repository
+ */
+
 class RecordRepository(application: Application) {
 
     // room db 초기화
     private val record_db = RecordsDatabase.getInstance(application)
     private val record_dao = record_db!!.recordsDao()
 
-    // 구글 로그인, 드라이브
+    // 구글 로그인, 드라이브 유틸클래스
     private val google_login = GoogleLogin()
     private val google_drive = GoogleDrive()
 
@@ -69,7 +72,8 @@ class RecordRepository(application: Application) {
     }
 
     // 구글 로그인 intent 리턴
-    fun googleSignIn(context: Context, setActivityGClient : (GoogleSignInOptions) -> Unit): Intent? {
+    fun googleSignIn(context: Context,
+                     setActivityGClient : (GoogleSignInOptions) -> Unit): Intent? {
         return google_login.googleSignIn(context, setActivityGClient)
     }
 

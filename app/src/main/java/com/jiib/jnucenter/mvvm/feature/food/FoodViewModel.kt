@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import com.jiib.jnucenter.mvvm.repository.FoodRepository
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.food.FoodDTO
 
+/**
+ *    학식 뷰모델
+ */
 class FoodViewModel : ViewModel() {
 
     private val repository = FoodRepository()

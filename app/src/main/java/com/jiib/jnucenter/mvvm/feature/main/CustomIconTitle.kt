@@ -10,6 +10,9 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.jiib.jnucenter.R
 
+/**
+ *    메인 액티비티의 프래그먼트에 표시할 <아이콘, 제목> 커스텀뷰
+ */
 class CustomIconTitle : ConstraintLayout{
 
     var icon : ImageView? = null

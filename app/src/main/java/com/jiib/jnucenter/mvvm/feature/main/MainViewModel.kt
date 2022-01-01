@@ -4,6 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jiib.jnucenter.mvvm.repository.MainRepository
 
+/**
+ *   메인액티비티 뷰모델
+ */
 class MainViewModel : ViewModel() {
 
     // Repository

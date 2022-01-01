@@ -20,31 +20,29 @@
         android:theme="@style/Theme.JNUCenter"
         android:usesCleartextTraffic="true">
 
-
+        <!-- 컴포넌트 -->
+        <!-- RecordActivity -->
         <activity android:name=".mvvm.feature.record.RecordActivity"></activity>
         <!-- PlaceActivity -->
         <activity
             android:name=".mvvm.feature.place.PlaceActivity"
             android:windowSoftInputMode="adjustNothing"
             />
+        <!-- BoardActivity -->
         <activity android:name=".mvvm.feature.board.BoardActivity" />
+        <!-- FoodActivity -->
         <activity android:name=".mvvm.feature.food.FoodActivity" />
+        <!-- AlarmActivity -->
         <activity android:name=".mvvm.feature.alarm.AlarmActivity" />
+        <!-- LectureDateActivity -->
         <activity android:name=".mvvm.feature.lecture.LectureDateActivity" />
-
-        <!-- kakao map app key -->
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="d69971c296a2a9bc402eb2ed6eebc501"/>
-        <!-- google ads -->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3958688591357712~6987190618" />
         <!-- NumberActivity -->
         <activity
             android:name=".mvvm.feature.number.NumberActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustNothing" />
         <!-- SplashActivity -->
-        <activity android:name=".SplashActivity">
+        <activity android:name=".mvvm.feature.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -63,6 +61,15 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+
+        <!-- api 키  -->
+        <!-- kakao map app key -->
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <!-- google ads -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/google_ad_key" />
     </application>
 
 </manifest>

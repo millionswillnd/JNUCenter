@@ -6,6 +6,10 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 
+/**
+ *   학식 정보 관련 유틸 클래스
+ */
+
 class FoodUtil {
 
     // 현재 날짜 구하기

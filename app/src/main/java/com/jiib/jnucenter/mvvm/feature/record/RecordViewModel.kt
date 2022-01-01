@@ -9,9 +9,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.jiib.jnucenter.mvvm.repository.RecordRepository
 import com.jiib.jnucenter.mvvm.repository.model.database.room.Records
 
+/**
+ *    녹음 액티비티 뷰모델
+ */
+
 class RecordViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = RecordRepository(application)
+    private val context = getApplication<Application>().applicationContext
 
     val record_list : LiveData<List<Records>>
         get() = repository.record_list
@@ -34,7 +39,7 @@ class RecordViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     // 구글 로그인 intent 리턴
-    fun googleSignIn(context: Context, setActivityGClient : (GoogleSignInOptions) -> Unit): Intent? {
+    fun googleSignIn(setActivityGClient : (GoogleSignInOptions) -> Unit): Intent? {
         return repository.googleSignIn(context, setActivityGClient)
     }
 

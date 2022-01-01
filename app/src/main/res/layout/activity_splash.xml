@@ -7,7 +7,7 @@
     android:id="@+id/splash_entire_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    tools:context=".mvvm.feature.splash.SplashActivity">
 
     <TextView
         android:id="@+id/splash_title"

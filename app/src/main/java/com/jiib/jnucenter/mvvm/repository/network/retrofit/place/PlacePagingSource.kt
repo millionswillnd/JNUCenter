@@ -4,27 +4,31 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 
 
+/**
+ *   장소 목록 PagingSource
+ */
+
+
 private const val STARTING_INDEX = 1
-private const val LOAD_ITEM_NUMBERS = 12
 
 class PlacePagingSource(
     private val place_service : PlaceService,
     private val search_words : String,
-    private val isSearch : String
+    private val isSearch : Boolean
 ) : PagingSource<Int, PlaceDTO>() {
 
     lateinit var places : List<PlaceDTO>
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PlaceDTO> {
-        val page_index = params?.key ?: STARTING_INDEX
+        val page_index = params.key ?: STARTING_INDEX
         return try {
             // 검색 x. 전체 목록
-            if (isSearch == "false"){
+            if(isSearch == false){
                 places = place_service.getPlaces(page_index)
             }
             // 검색하는 경우
             else {
-                places = place_service.getPlaceByName(search_words, page_index)
+                places = place_service.getPlacesByName(search_words, page_index)
             }
 
             LoadResult.Page(

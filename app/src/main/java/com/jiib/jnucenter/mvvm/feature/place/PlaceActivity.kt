@@ -29,6 +29,10 @@ import java.lang.Exception
 import java.security.MessageDigest
 import java.security.Signature
 
+/**
+ *   카카오맵을 통한 장소 찾기 Activity
+ */
+
 class PlaceActivity : AppCompatActivity(), FragListener {
 
     lateinit var binding : ActivityPlaceBinding
@@ -52,17 +56,18 @@ class PlaceActivity : AppCompatActivity(), FragListener {
         initFragment()
 
         // 검색 필터
-        binding.placeSearchTitle.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextChange(newText: String?): Boolean {
+        binding.placeSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
 
-                // 카카오 맵 프래그먼트에서 검색 기능 사용 경우
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // MapFragment에서 검색하는 경우, 다시 SearchFragment로 전환
                 if (map_flag == true){
                     changeFragment("search")
                     map_flag = false
                 }
 
+                // SearchFragment의 리사이클러뷰에 검색어에 해당하는 PagingData 제공 (공백 시 전체 리스트)
                 lifecycleScope.launch(Dispatchers.IO) {
-                    viewmodel.getPlaceByName(newText!!).collectLatest {
+                    viewmodel.getPlacesByName(newText!!).collectLatest {
                         search_fragment.updateAdapter(it)
                     }
                 }
@@ -70,7 +75,8 @@ class PlaceActivity : AppCompatActivity(), FragListener {
             }
 
             override fun onQueryTextSubmit(query: String?): Boolean {
-                binding.placeSearchTitle.clearFocus()
+                // 검색 제출 시 포커스 해제
+                binding.placeSearchView.clearFocus()
                 return true
             }
         })
@@ -117,13 +123,14 @@ class PlaceActivity : AppCompatActivity(), FragListener {
         commitFragment(search_fragment)
     }
 
+    //
     private fun commitFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction()
             .replace(R.id.place_fragment_container, fragment)
             .commit()
     }
 
-    // 프래그먼트 바꿀 시 사용
+    // map 플래그가 넘어오면 PlaceMapFragment, 그 외는 PlaceSearchFragment
     override fun changeFragment(frag_name: String) {
         if (frag_name == "map"){
             commitFragment(kakaomap_fragment)

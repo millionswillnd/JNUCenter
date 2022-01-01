@@ -3,13 +3,16 @@ package com.jiib.jnucenter.mvvm.repository
 import androidx.lifecycle.MutableLiveData
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.alarm.AlarmDTO
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.alarm.AlarmService
-import com.jiib.jnucenter.mvvm.repository.network.retrofit.lecture.LectureDTO
-import com.jiib.jnucenter.mvvm.repository.network.retrofit.lecture.LectureService
 import retrofit2.Call
+
+/**
+ *   알람 관련 Repository
+ */
 
 class AlarmRepository {
 
-    val alarm_service = AlarmService()
+    // Retrofit Service
+    private val alarm_service = AlarmService()
 
     // 강의 기한, 장학 공지, 학식 알람 세팅 변수
     val alarm_list: MutableLiveData<AlarmDTO> = MutableLiveData()

@@ -1,9 +1,11 @@
 package com.jiib.jnucenter.mvvm.repository.model.database.room
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
 import androidx.room.Query
+
+/**
+ *   녹음 관련 dao
+ */
 
 @Dao
 interface RecordsDao {

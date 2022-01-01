@@ -4,6 +4,10 @@ import com.jiib.jnucenter.mvvm.repository.network.retrofit.RetrofitClient
 import retrofit2.Call
 import retrofit2.Retrofit
 
+/**
+ *   Lecture Retrofit Service
+ */
+
 class LectureService {
 
     private val retrofit_client = RetrofitClient

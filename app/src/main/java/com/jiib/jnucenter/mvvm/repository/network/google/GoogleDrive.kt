@@ -15,6 +15,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
 
+/**
+ *   구글드라이브 관련 클래스
+ */
+
 class GoogleDrive {
 
     // 구글 드라이브 객체 리턴

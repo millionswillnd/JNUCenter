@@ -13,12 +13,16 @@ import com.jiib.jnucenter.mvvm.repository.network.retrofit.lecture.LectureDTO
 import com.jiib.jnucenter.mvvm.utils.LectureUtil
 import kotlinx.coroutines.*
 
+/**
+ *    강의 기한 액티비티
+ */
 class LectureDateActivity : AppCompatActivity() {
 
 
     lateinit var binding : ActivityLectureDateBinding
     lateinit var adapter : LectureAdapter
     lateinit var lecture_viewModel: LectureDateViewModel
+    // 유틸클래스 및 dto 담은 리스트
     var lecture_util : LectureUtil? = null
     var lecture_list : List<LectureDTO>? = null
 

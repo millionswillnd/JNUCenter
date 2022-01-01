@@ -18,6 +18,10 @@ import net.daum.mf.map.api.CalloutBalloonAdapter
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 
+/**
+ *   카카오맵으로 검색한 건물을 표시해주는 Fragment
+ */
+
 class PlaceMapFragment : Fragment() {
 
     private var binding : PlaceKakaomapFragmentBinding? = null
@@ -37,7 +41,10 @@ class PlaceMapFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         place_viewmodel = ViewModelProvider(requireActivity()).get(PlaceViewModel::class.java)
 
-        // 카카오맵 세팅
+        /*
+         * 카카오맵 세팅
+         */
+
         // 위치 정보를 답은 MapPoint 객체
         val map_point = MapPoint.mapPointWithGeoCoord(
             place_viewmodel.latitude.value!!.toDouble(),
@@ -62,9 +69,6 @@ class PlaceMapFragment : Fragment() {
 
         // 세팅
         binding?.kakaoMapview?.apply {
-            binding?.kakaoMapview?.mapCenterPoint?.mapPointGeoCoord?.latitude
-            binding?.kakaoMapview?.mapCenterPoint?.mapPointGeoCoord?.longitude
-
             // 클릭한 장소의 정보값으로 세팅한 뷰모델 변수들로 위치 설정
             setMapCenterPoint(map_point, true)
             // 줌 설정
@@ -85,9 +89,6 @@ class PlaceMapFragment : Fragment() {
 // 커스텀 말풍선 어댑터 클래스
 class CustomBalloonAdapter(inflater: LayoutInflater, private val viewmodel :PlaceViewModel) : CalloutBalloonAdapter{
 
-    // 걸리는 시간 구하기 위한 유틸 클래스
-    val util = PlaceUtil()
-
     val balloon = inflater.inflate(R.layout.place_kakaomap_custom_balloon, null)
     val name : TextView = balloon.findViewById(R.id.place_name)
     val way : TextView = balloon.findViewById(R.id.place_way)
@@ -107,8 +108,9 @@ class CustomBalloonAdapter(inflater: LayoutInflater, private val viewmodel :Plac
             viewmodel.longitude.value!!.toDouble())
         val taking_time = viewmodel.getTimeByDistance(dist)
 
-        // 소수점 첫째자리에서 반올림해줘서 넣어준다.
-        time.text = "걸어가면 ${String.format("%.0f", taking_time[0])}분, 뛰어가면 ${String.format("%.0f", taking_time[1])}분"
+        // 소수점 첫째자리에서 반올림
+        time.text = "걸어가면 ${String.format("%.0f", taking_time[0])}분," +
+                " 뛰어가면 ${String.format("%.0f", taking_time[1])}분"
 
         return balloon
     }

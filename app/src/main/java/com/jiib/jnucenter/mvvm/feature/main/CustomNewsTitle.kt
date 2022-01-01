@@ -9,6 +9,9 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.jiib.jnucenter.R
 
+/**
+ *    메인액티비티의 신문기사 파트에 표시할 <제목, 더보기> 커스텀뷰
+ */
 class CustomNewsTitle : ConstraintLayout {
 
     var title : TextView? = null
@@ -56,7 +59,6 @@ class CustomNewsTitle : ConstraintLayout {
 
 
     private fun setTypeArray(typedArray: TypedArray){
-
         // Title SET
         val title_resId = typedArray.getString(R.styleable.CustomNewsTitle_title)
         title?.setText(title_resId)

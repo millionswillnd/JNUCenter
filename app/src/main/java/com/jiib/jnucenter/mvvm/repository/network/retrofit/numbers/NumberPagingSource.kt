@@ -4,8 +4,14 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import java.lang.Exception
 
+
+/**
+ *   전화번호부 PagingSource.
+ *   page size = 12
+ */
+
+
 private const val STARTING_INDEX = 1
-private const val LOAD_ITEM_NUMBERS = 12
 
 class NumberPagingSource(
     private val number_service : NumberService,

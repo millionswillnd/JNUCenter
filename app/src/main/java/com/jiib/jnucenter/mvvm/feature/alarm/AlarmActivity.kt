@@ -1,29 +1,25 @@
 package com.jiib.jnucenter.mvvm.feature.alarm
 
-import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.CompoundButton
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import com.google.firebase.messaging.FirebaseMessaging
 import com.jiib.jnucenter.R
 import com.jiib.jnucenter.databinding.ActivityAlarmBinding
 import com.jiib.jnucenter.mvvm.feature.main.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope.coroutineContext
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.coroutines.coroutineContext
 
-
+/**
+ *  알람 액티비티
+ *  새로운 장학 게시글, 강의기한, 학식 알람 수신 설정 여부를 서버로 전송
+ */
 class AlarmActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityAlarmBinding

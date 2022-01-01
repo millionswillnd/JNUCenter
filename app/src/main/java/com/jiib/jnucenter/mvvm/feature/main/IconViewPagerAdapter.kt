@@ -4,6 +4,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
+/**
+ *   메인액티비티에서 쓸 아이콘 ViewPager
+ */
 class IconViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa){
     override fun getItemCount(): Int {
         return 3

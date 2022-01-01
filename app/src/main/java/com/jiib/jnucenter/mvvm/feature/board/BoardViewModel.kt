@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import com.jiib.jnucenter.mvvm.repository.BoardRepository
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.board.BoardDTO
 
+/**
+ *    게시판 뷰모델
+ */
 class BoardViewModel : ViewModel() {
 
     val repositry = BoardRepository()

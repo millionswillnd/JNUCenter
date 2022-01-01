@@ -8,8 +8,12 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.jiib.jnucenter.R
 
+/**
+ *   강의 기한 액티비티에서 쓸 <제목, 기한> 커스텀뷰
+ */
 class CustomLectureDate : ConstraintLayout {
 
+    // 강의,퀴즈,과제 제목 -> 기한 -> 배경뷰
     var title : TextView? = null
     var date : TextView? = null
     var layout : ConstraintLayout? = null
@@ -28,7 +32,6 @@ class CustomLectureDate : ConstraintLayout {
     }
 
     private fun initView(){
-
         val inflaterService = Context.LAYOUT_INFLATER_SERVICE
         val layoutInflater = context.getSystemService(inflaterService) as LayoutInflater
         val view = layoutInflater.inflate(R.layout.lecture_date_customview, this, false)

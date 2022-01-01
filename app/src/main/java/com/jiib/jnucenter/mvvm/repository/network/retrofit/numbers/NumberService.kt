@@ -5,6 +5,10 @@ import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Retrofit
 
+/**
+ *   Number Retrofit Service
+ */
+
 class NumberService{
 
     private val retrofit_client = RetrofitClient

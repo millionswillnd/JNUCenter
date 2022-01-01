@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import com.jiib.jnucenter.mvvm.repository.LectureDateRepository
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.lecture.LectureDTO
 
+/**
+ *    강의 기한 뷰모델
+ */
 class LectureDateViewModel : ViewModel() {
 
     private val lecture_repository = LectureDateRepository()

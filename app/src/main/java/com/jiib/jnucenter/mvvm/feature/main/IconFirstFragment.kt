@@ -18,7 +18,9 @@ import com.jiib.jnucenter.mvvm.feature.lecture.LectureDateActivity
 import com.jiib.jnucenter.mvvm.feature.place.PlaceActivity
 import com.jiib.jnucenter.mvvm.feature.record.RecordActivity
 
-// 메인액티비티의 메뉴 뷰페이저에 들어갈 1페이지 프래그먼트
+/**
+ *   메인액티비티의 메뉴 뷰페이저에 들어갈 1페이지 프래그먼트
+ */
 class IconFirstFragment : Fragment(), View.OnClickListener {
 
     var binding : MainIconFragOneBinding? = null

@@ -14,6 +14,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ *   학식 정보 액티비티
+ */
 class FoodActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityFoodBinding
@@ -25,7 +28,7 @@ class FoodActivity : AppCompatActivity() {
 
         viewmodel = ViewModelProvider(this).get(FoodViewModel::class.java)
 
-        // 백 버튼
+        // 백 버튼 리스너
         binding.foodBackButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

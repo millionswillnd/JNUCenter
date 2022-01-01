@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">JNUCenter</string>
+    <string name="kakao_app_key">d69971c296a2a9bc402eb2ed6eebc501</string>
+    <string name="google_ad_key">ca-app-pub-3958688591357712~6987190618</string>
 </resources>

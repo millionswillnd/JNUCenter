@@ -8,9 +8,10 @@ import android.location.LocationManager
 import android.util.Log
 import androidx.core.content.ContextCompat
 
-/*
-*     지도 액티비티에서 쓰일 Util Class
+/**
+ *    장소검색 관련 유틸 클래스
  */
+
 class PlaceUtil {
 
     // 두 지점의 위경도 차이로 거리를 계산해 리턴

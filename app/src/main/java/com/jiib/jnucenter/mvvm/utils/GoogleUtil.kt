@@ -4,9 +4,8 @@ import android.content.Context
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 
 
-/*
- *         구글 로그인 + 드라이브 백업 관련 코드
- *
+/**
+ *    구글 로그인 + 드라이브 유틸 클래스
  */
 
 class GoogleUtil {

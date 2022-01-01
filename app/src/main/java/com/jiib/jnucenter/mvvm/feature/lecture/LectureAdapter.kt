@@ -11,6 +11,10 @@ import com.jiib.jnucenter.databinding.LectureRecyclerviewItemBinding
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.lecture.LectureDTO
 import com.jiib.jnucenter.mvvm.utils.LectureUtil
 
+/**
+ *   강의 기한 액티비티 RecyclerView Adapter
+ *   기한 2일 이하 강의는 빨간색 표시
+ */
 class LectureAdapter(val lecture_util: LectureUtil, val lecture_date_list: List<LectureDTO>, val context: Context)
     : RecyclerView.Adapter<LectureViewHolder>() {
 
@@ -37,7 +41,7 @@ class LectureAdapter(val lecture_util: LectureUtil, val lecture_date_list: List<
 }
 
 
-// 이너클래스로 구현할 경우 외부클래스 참조를 가지기에 top-level로 선언
+// 메모리릭 피하기 위해 중첩클래스 선언
  class LectureViewHolder(
      private val binding : LectureRecyclerviewItemBinding,
      private val lecture_util : LectureUtil,

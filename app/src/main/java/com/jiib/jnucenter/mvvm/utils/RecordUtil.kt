@@ -6,6 +6,10 @@ import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.net.Uri
 
+/**
+ *    녹음 관련 유틸 클래스
+ */
+
 class RecordUtil {
 
     // 레코드 사용 설정

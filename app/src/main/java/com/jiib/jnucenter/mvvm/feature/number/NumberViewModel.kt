@@ -10,6 +10,9 @@ import com.jiib.jnucenter.mvvm.repository.network.retrofit.numbers.NumberService
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.numbers.NumbersDTO
 import kotlinx.coroutines.flow.Flow
 
+/**
+ *   전화번호부 ViewModel
+ */
 class NumberViewModel() : ViewModel() {
 
     private val number_repository = NumberRepository(NumberService())

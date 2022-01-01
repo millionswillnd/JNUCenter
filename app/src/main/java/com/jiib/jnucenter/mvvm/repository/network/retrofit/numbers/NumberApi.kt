@@ -4,6 +4,10 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ *   전화번호부 Retrofit Api
+ */
+
 interface NumberApi {
 
     // 학내 모든 전화번호 리퀘스트, 페이징 적용 o

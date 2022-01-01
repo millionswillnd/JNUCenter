@@ -10,6 +10,10 @@ import com.jiib.jnucenter.mvvm.repository.PlaceRepository
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.place.PlaceDTO
 import kotlinx.coroutines.flow.Flow
 
+/**
+ *     장소 액티비티 뷰모델
+ */
+
 class PlaceViewModel (application: Application) : AndroidViewModel(application) {
 
     private val repository = PlaceRepository()
@@ -31,12 +35,12 @@ class PlaceViewModel (application: Application) : AndroidViewModel(application) 
 
 
     // 검색어로 장소 찾기 리파지토리 api 요청
-    suspend fun getPlaceByName(name:String) : Flow<PagingData<PlaceDTO>> {
-        return repository.getPlaceByName(name).cachedIn(viewModelScope)
+    fun getPlacesByName(name:String) : Flow<PagingData<PlaceDTO>> {
+        return repository.getPlacesByName(name).cachedIn(viewModelScope)
     }
 
     // 전체 장소 목록 리파지토리 api 요청
-    suspend fun getPlaces() : Flow<PagingData<PlaceDTO>> {
+    fun getPlaces() : Flow<PagingData<PlaceDTO>> {
         return repository.getPlaces().cachedIn(viewModelScope)
     }
 
@@ -60,7 +64,7 @@ class PlaceViewModel (application: Application) : AndroidViewModel(application) 
     }
 
     // context를 쓰기 위한 뷰모델 팩토리
-    class Factory(val application: Application) : ViewModelProvider.Factory{
+    class Factory(val application: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return PlaceViewModel(application) as T
         }

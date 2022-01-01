@@ -5,6 +5,10 @@ import android.icu.util.Calendar
 import android.icu.util.TimeZone
 import com.jiib.jnucenter.R
 
+/**
+ *    메인액티비티(홈화면)의 날씨 파트 관련 유틸 클래스
+ */
+
 class WeatherUtil {
 
     // 현재 월, 날짜, 요일 구하기

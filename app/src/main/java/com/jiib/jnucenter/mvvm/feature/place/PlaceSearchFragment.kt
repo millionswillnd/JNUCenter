@@ -1,8 +1,6 @@
 package com.jiib.jnucenter.mvvm.feature.place
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +18,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
+/**
+ *   장소 검색 시 쓰일 프래그먼트
+ */
 
 class PlaceSearchFragment : Fragment() {
 
@@ -40,10 +42,12 @@ class PlaceSearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // 뷰모델 초기화
         place_viewmodel = ViewModelProvider(requireActivity()).get(PlaceViewModel::class.java)
 
         // 리사이클러뷰 세팅
-        adapter = PlaceAdapter({name:String,latitude:String,longitude:String,way:String -> findClickListener(name, latitude, longitude, way)})
+        adapter = PlaceAdapter({name:String,latitude:String,longitude:String,way:String
+            -> findClickListener(name, latitude, longitude, way)})
         recycler_view = binding?.placeRecyclerview!!
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(
@@ -67,15 +71,14 @@ class PlaceSearchFragment : Fragment() {
         binding = null
     }
 
-    // 검색시 페이징 데이터를 액티비티에서 받아와 update
+    // 검색시 페이징 데이터를 받아와 어댑터를 update
     suspend fun updateAdapter(paging_data : PagingData<PlaceDTO>){
         adapter.submitData(paging_data)
     }
 
     // 어댑터에 넘겨줄 찾기 버튼 클릭 리스너
-    // 뷰모델에 장소 정보를 세팅하고 kakaomap 프래그먼트로 교체
     private fun findClickListener(place_name: String, latitude: String, longitude: String, way: String){
-
+        // 뷰모델 LiveData에 이름, 위도, 경도, 장소힌트 세팅
         CoroutineScope(Dispatchers.IO).launch {
             val job = launch {
                 place_viewmodel.latitude.postValue(latitude)
@@ -84,6 +87,7 @@ class PlaceSearchFragment : Fragment() {
                 place_viewmodel.way.postValue(way)
             }
 
+            // MapFragment로 교체
             withContext(Dispatchers.Main){
                 job.join()
                 val activity = activity as PlaceActivity

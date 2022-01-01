@@ -1,4 +1,4 @@
-package com.jiib.jnucenter
+package com.jiib.jnucenter.mvvm.feature.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +8,9 @@ import android.os.Looper
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.databinding.DataBindingUtil
+import com.jiib.jnucenter.R
 import com.jiib.jnucenter.databinding.ActivitySplashBinding
 import com.jiib.jnucenter.mvvm.feature.main.MainActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity() {
 

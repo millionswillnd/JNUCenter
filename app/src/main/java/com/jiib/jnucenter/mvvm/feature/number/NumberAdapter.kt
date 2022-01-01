@@ -16,6 +16,9 @@ import com.jiib.jnucenter.databinding.NumberRecyclerviewItemBinding
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.numbers.NumbersDTO
 import com.jiib.jnucenter.mvvm.utils.TextUtils
 
+/**
+ *   NumberActivity의 RecyclerView 어댑터
+ */
 class NumberAdapter(val context: Context, val textUtils: TextUtils)
     : PagingDataAdapter<NumbersDTO, NumberAdapter.NumberViewHolder>(DIFF_UTIL){
 

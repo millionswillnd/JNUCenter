@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import com.jiib.jnucenter.mvvm.repository.AlarmRepository
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.alarm.AlarmDTO
 
+/**
+ *    알람 뷰모델
+ */
 class AlarmViewModel : ViewModel() {
 
     private val alarm_repository = AlarmRepository()

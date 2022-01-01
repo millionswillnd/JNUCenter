@@ -15,10 +15,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ *    동아리, 소모임 및 알뜰장터 게시판을 크롤링한 액티비티
+ */
 class BoardActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityBoardBinding
     lateinit var viewmodel : BoardViewModel
+    // 뉴스 커스텀뷰를 순차 처리하기 위한 리스트
     private var view_list : List<CustomNewsTitle>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,9 +61,9 @@ class BoardActivity : AppCompatActivity() {
         viewmodel.board_list.observe(this, Observer {
 
             var i = 0
-
             for((title, link) in it){
                 view_list!!.get(i).title!!.text = title
+                // 링크로 이동
                 view_list!!.get(i).setOnClickListener {
                     val intent = Intent()
                     intent.setAction(Intent.ACTION_VIEW)

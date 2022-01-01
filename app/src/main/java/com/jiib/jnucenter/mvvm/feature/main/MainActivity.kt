@@ -1,14 +1,11 @@
 package com.jiib.jnucenter.mvvm.feature.main
 
-import android.app.Activity
-import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -23,18 +20,20 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.initialization.InitializationStatus
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener
-import com.google.firebase.iid.FirebaseInstanceIdReceiver
-import com.google.firebase.iid.internal.FirebaseInstanceIdInternal
-import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.*
 
+/**
+ *   홈화면 액티비티
+ */
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityMainBinding
+    // 구글 ads 관련
     private var adRequest : AdRequest? = null
     lateinit var viewPager : ViewPager2
     lateinit var viewModel : MainViewModel
     var weather_util : WeatherUtil? = null
+    // 뉴스 리스트를 담을 배열
     private var view_title_list : List<CustomNewsTitle>? = null
 
 

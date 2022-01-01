@@ -8,6 +8,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ *   게시판 관련 Repository
+ */
+
 class BoardRepository {
 
     val board_service = BoardService()

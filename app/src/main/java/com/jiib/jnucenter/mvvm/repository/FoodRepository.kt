@@ -10,9 +10,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ *   학식 게시판 관련 Repository
+ */
+
 class FoodRepository {
 
+    // Retrofit Service
     val food_service = FoodService()
+    // 유틸 클래스
     val food_util = FoodUtil()
 
     // 식당별 학식 리스트를 담은 LiveData

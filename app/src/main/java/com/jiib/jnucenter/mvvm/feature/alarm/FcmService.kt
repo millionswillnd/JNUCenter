@@ -1,38 +1,33 @@
 package com.jiib.jnucenter.mvvm.feature.alarm
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.ContextWrapper
 import android.content.Intent
-import android.graphics.Color
-import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.google.firebase.messaging.ktx.remoteMessage
 import com.jiib.jnucenter.R
 import com.jiib.jnucenter.mvvm.feature.application.JnuApplication
 import com.jiib.jnucenter.mvvm.feature.food.FoodActivity
 import com.jiib.jnucenter.mvvm.feature.lecture.LectureDateActivity
 import com.jiib.jnucenter.mvvm.feature.main.MainActivity
-import com.jiib.jnucenter.mvvm.repository.AlarmRepository
 
+
+/**
+ *    FCM 관련 코드 (토큰 서버 전송 / FCM 수신 콜백)
+ */
 class FcmService : FirebaseMessagingService() {
 
-    // 클라우드 서버에 등록되었을 때 호출(p0 = 토큰값)
-    // token을 서버로 전송
+    private val NOTI_CHANNEL_ID = 101
+
+    // 클라우드 서버에 등록되었을 때 token을 서버로 전송
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
         val alarm_viewmodel = AlarmViewModel()
             alarm_viewmodel.sendFcmToken(p0)
     }
 
-    // 백엔드에서 notification을 json 프로퍼티로 주지 않을 시
-    // 아래 메소드에서 포그라운드 뿐 아니라 앱 백그라운드 상태에서도 메시지 핸들 가능
+    // 수신 콜백
     override fun onMessageReceived(p0: RemoteMessage) {
         super.onMessageReceived(p0)
 
@@ -63,13 +58,14 @@ class FcmService : FirebaseMessagingService() {
             content_view.setImageViewResource(R.id.fcm_icon, R.drawable.main_icon_color_calendar)
         }
 
+        // 펜딩인텐트
         val pending_intent = PendingIntent.getActivity(
             applicationContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         // 전역변수 접근
         val app = applicationContext as JnuApplication
 
-        val notification = NotificationCompat.Builder(this, "101")
+        val notification = NotificationCompat.Builder(this, NOTI_CHANNEL_ID.toString())
             .setContent(content_view)
             .setSmallIcon(R.drawable.main_icon_calendar)
             .setShowWhen(true)
@@ -77,6 +73,6 @@ class FcmService : FirebaseMessagingService() {
             .setFullScreenIntent(pending_intent, true)
             .build()
 
-        app.notification_manager.notify(101, notification)
+        app.notification_manager.notify(NOTI_CHANNEL_ID, notification)
     }
 }

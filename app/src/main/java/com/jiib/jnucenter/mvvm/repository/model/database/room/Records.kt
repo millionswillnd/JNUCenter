@@ -4,6 +4,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ *    녹음 파일 제목, 재생시간, 내부저장소 경로를 담을 Room db table
+ */
+
 @Entity
 data class Records(
     @PrimaryKey(autoGenerate = true)

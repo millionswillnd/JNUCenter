@@ -9,6 +9,10 @@ import com.jiib.jnucenter.mvvm.repository.network.retrofit.numbers.NumberService
 import com.jiib.jnucenter.mvvm.repository.network.retrofit.numbers.NumbersDTO
 import kotlinx.coroutines.flow.Flow
 
+/**
+ *   전화번호부 관련 Repository
+ */
+
 class NumberRepository(private val number_service: NumberService) {
 
     // 검색된 전화번호 리스트

@@ -10,6 +10,10 @@ import com.jiib.jnucenter.mvvm.repository.network.retrofit.weather.WeatherDTO
 import com.jiib.jnucenter.mvvm.utils.WeatherUtil
 import retrofit2.*
 
+/**
+ *   홈화면 관련 Repository
+ */
+
 class MainRepository {
 
     private val retrofit_client = RetrofitClient

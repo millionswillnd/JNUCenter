@@ -17,6 +17,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+/**
+ *   전화번호부 액티비티
+ */
 class NumberActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityNumberBinding
