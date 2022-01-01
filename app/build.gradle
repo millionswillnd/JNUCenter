@@ -42,8 +42,14 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
+            // 프로가트 비활성화
             minifyEnabled false
+        }
+
+        release {
+            // 릴리즈 시 프로가드 활성화 
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
