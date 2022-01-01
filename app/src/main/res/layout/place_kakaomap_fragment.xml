@@ -3,6 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+
+    <!-- PlaceActivity에서 쓰일 Map 화면 프래그먼트 -->
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/map_container"
     android:layout_width="match_parent"

@@ -7,7 +7,8 @@
     android:layout_height="100dp"
     >
 
-    <!--app:tint="@color/black"-->
+    <!-- MainActivity 아이콘 커스텀뷰 -->
+
     <ImageView
         android:id="@+id/custom_icon_vector"
         android:layout_width="wrap_content"

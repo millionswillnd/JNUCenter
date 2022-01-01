@@ -3,6 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+
+    <!-- MainActivity에서 쓰일 아이콘 모음 Fragment 1번째 -->
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/frag_one_const"
     android:layout_width="match_parent"

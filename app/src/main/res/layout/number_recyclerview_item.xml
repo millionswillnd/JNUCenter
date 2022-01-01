@@ -4,6 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
+    <!-- NumerActivity 리사이클러뷰에 쓰일 item layout -->
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">

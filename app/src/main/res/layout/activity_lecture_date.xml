@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
+    <!-- LectureDateActivity layout -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -73,6 +76,9 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.13"
         ></androidx.constraintlayout.widget.Guideline>
+
+    <!-- 강의, 과제, 퀴즈 제목과 기한을 나타내주는 리사이클러뷰 -->
+    <!-- 2일 이하는 빨간색 -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lecture_recyclerview"

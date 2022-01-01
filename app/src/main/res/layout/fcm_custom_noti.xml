@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- 학식알람 FCM 수신 시 받을 커스텀 노티 layout -->
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fcm_layout"

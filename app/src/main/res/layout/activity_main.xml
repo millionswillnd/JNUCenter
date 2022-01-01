@@ -7,7 +7,9 @@
     tools:context=".mvvm.feature.main.MainActivity"
     >
 
+    <!-- LectureDateActivity layout -->
 
+    <!-- MainViewModel layout -->
     <data>
         <variable
             name="viewmodel"
@@ -25,6 +27,7 @@
         tools:context=".mvvm.feature.main.MainActivity"
         >
 
+            <!--   전화번호 검색    -->
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/main_search_view"
                 android:layout_width="0dp"
@@ -66,6 +69,8 @@
                 app:layout_constraintGuide_percent="0.075"
                 ></androidx.constraintlayout.widget.Guideline>
 
+        <!-- 구글애드 -->
+
         <com.google.android.gms.ads.AdView
             android:id="@+id/main_google_adview"
             android:layout_width="0dp"
@@ -95,6 +100,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             ></View>
+
+        <!-- 홈화면 아이콘 뷰페이저 -->
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/icon_viewpager"
@@ -180,6 +187,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             ></View>
+
+        <!-- 날씨파트 -->
 
         <TextView
             android:id="@+id/main_weather_title"
@@ -299,6 +308,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/main_news_upper_guide"
             ></View>
+
+        <!-- 신문파트 -->
 
         <TextView
             android:id="@+id/main_news_head"

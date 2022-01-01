@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
+
+    <!-- RecordActivity layout -->
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -91,6 +94,8 @@
         ></androidx.constraintlayout.widget.Guideline>
 
 
+    <!-- 저장된 수업 녹음 목록을 보여준다 -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/record_center_constraint"
         android:layout_width="0dp"
@@ -157,6 +162,8 @@
         app:layout_constraintTop_toBottomOf="@id/record_recyclerview_bottom_guide"
         ></View>
 
+    <!-- 구글드라이브 백업 버튼 -->
+
     <TextView
         android:id="@+id/record_google_backup"
         android:layout_width="wrap_content"
@@ -170,6 +177,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         ></TextView>
+
+    <!-- 녹음 시간 -->
 
     <TextView
         android:id="@+id/record_time"
