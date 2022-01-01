@@ -13,10 +13,10 @@
 </p>
 </br>
 <p align="left">
-<img src="https://user-images.githubusercontent.com/82270774/147848725-63f04339-4e72-4dfb-83ac-f9df42a6dfc3.png" width="23%"/>
 <img src="https://user-images.githubusercontent.com/82270774/147675505-5306fd56-2fcd-47f1-b3f0-123c39584976.png" width="23%"/>
 <img src="https://user-images.githubusercontent.com/82270774/147675699-b1ae4fa1-12c5-4869-bca1-83d4ad3552f6.png" width="23%"/>
 <img src="https://user-images.githubusercontent.com/82270774/147848663-5b6403b9-cd24-47ad-9f26-1d4f029060ea.png" width="23%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147848725-63f04339-4e72-4dfb-83ac-f9df42a6dfc3.png" width="23%"/>
 </p>
 
 </br>
@@ -60,7 +60,7 @@
 
 ## 3. 서비스 전체 흐름
 
-<img src="https://user-images.githubusercontent.com/82270774/147727548-63cdd798-aec0-44d8-b700-54d1567aa1fe.PNG" width="100%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147848905-19031570-70e0-430c-91c5-80d857cd7a4b.PNG" width="100%"/>
 
 
 
@@ -97,7 +97,7 @@
 </br>
 </br>
 
-- **getPlacesByName 함수** :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/2a2d1546f7cf16967eef30f6c71b8ad664fdc9ac/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceActivity.kt#L65)
+- **getPlacesByName 함수** :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/master/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceActivity.kt#L70)
   - PlaceViewModel의 getPlacesByName 함수를 호출합니다. 
   - 검색어가 변할 때 마다 실행됩니다. 
 
@@ -110,7 +110,7 @@
 </br>
 </br>
 
-- **getPlacesByName 함수** :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/b93fc3b05dbbe233acabb2bdc7a2dafb0320765c/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceViewModel.kt#L34)
+- **getPlacesByName 함수** :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/8d062d048f02f15f9408b5ecab84814ee0c7dbab/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceViewModel.kt#L38)
   - PlaceRepository의 getPlacesByName 함수를 호출합니다. 
 
 </br>
@@ -122,7 +122,7 @@
 </br>
 </br>
 
-- **getPlacesByName 함수** :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/05bea843ba4488853ed7665e8d64b8f15296adf4/app/src/main/java/com/jiib/jnucenter/mvvm/repository/PlaceRepository.kt#L26)
+- **getPlacesByName 함수** :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/f82625eb2635704b8fefbf9470e0b041cc6d33cb/app/src/main/java/com/jiib/jnucenter/mvvm/repository/PlaceRepository.kt#L25)
   - PlacePagingSource 객체의 파라미터는 순서대로 다음과 같습니다  
   (1) Retrofit Service 객체 </br>
   (2) 검색어 </br>
@@ -137,7 +137,7 @@
 </br>
 </br>
 
-- :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/8d96134d9ee19748eb0b1bcdc17f3a65b4862a72/app/src/main/java/com/jiib/jnucenter/mvvm/repository/network/retrofit/place/PlaceService.kt#L14)
+- :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/b28f9675f694b21d2676d46a5390195a4affa90b/app/src/main/java/com/jiib/jnucenter/mvvm/repository/network/retrofit/place/PlacePagingSource.kt#L22)
  
 </br>
 </br>
@@ -150,7 +150,7 @@
 </br>
 </br>
 
-- :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/2d2f2faa92a242c38ceb200c3bc7ee945d2496c5/app/src/main/java/com/jiib/jnucenter/mvvm/repository/network/retrofit/place/PlacePagingSource.kt#L27)
+- :pushpin: [코드 확인](https://github.com/millionswillnd/JNUCenter/blob/17bf7aa60730fc7e1424abe777cdbf8c4145a969/app/src/main/java/com/jiib/jnucenter/mvvm/repository/network/retrofit/place/PlaceService.kt#L20)
  
 </br>
 </br>
@@ -179,7 +179,7 @@
 </br>
 </br>
 
-- :pushpin: [프래그먼트 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/2be3edd4756aade12b7728ffbf6901cb81290511/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceSearchFragment.kt#L72)
+- :pushpin: [프래그먼트 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/24760e6c6f5caea27b72dea6c733d842e01379d0/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceSearchFragment.kt#L75)
  
 </br>
 </br>
@@ -198,8 +198,8 @@
 </br>
 </br>
 
-- :pushpin: [find_listener 함수 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/98d28261edf5c6cd17fefb7d22fb81c215aaa4e7/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceSearchFragment.kt#L77)
-- :pushpin: [Adapter 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/db6eee59bde9c4f22d25e6adc370666d9ee9d6ec/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceAdapter.kt#L16) 
+- :pushpin: [find_listener 함수 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/1677af84a658640d6c11373334e2ae9a8a7d0452/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceSearchFragment.kt#L80)
+- :pushpin: [Adapter 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/1677af84a658640d6c11373334e2ae9a8a7d0452/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceAdapter.kt#L18) 
  
 </br>
 </br>
@@ -212,8 +212,8 @@
 </br>
 </br>
 
-- :pushpin: [PlaceMapFragment 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/db6eee59bde9c4f22d25e6adc370666d9ee9d6ec/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceMapFragment.kt#L21)
-- :pushpin: [유틸클래스 getCurrentPosition 함수 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/db6eee59bde9c4f22d25e6adc370666d9ee9d6ec/app/src/main/java/com/jiib/jnucenter/mvvm/utils/PlaceUtil.kt#L58)
+- :pushpin: [PlaceMapFragment 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/1677af84a658640d6c11373334e2ae9a8a7d0452/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceMapFragment.kt#L25)
+- :pushpin: [유틸클래스 getCurrentPosition 함수 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/1677af84a658640d6c11373334e2ae9a8a7d0452/app/src/main/java/com/jiib/jnucenter/mvvm/utils/PlaceUtil.kt#L59)
  
 </br>
 </br>
@@ -226,9 +226,9 @@
 </br>
 </br>
 
-- :pushpin: [CustomBallonAdapter 클래스 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/5dd519ef0bca2f86652bdf3540081dde87648d9a/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceMapFragment.kt#L86)
-- :pushpin: [유틸클래스 getDistance 함수 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/5dd519ef0bca2f86652bdf3540081dde87648d9a/app/src/main/java/com/jiib/jnucenter/mvvm/utils/PlaceUtil.kt#L17)
-- :pushpin: [유틸클래스 getTimeByDistance 함수 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/5dd519ef0bca2f86652bdf3540081dde87648d9a/app/src/main/java/com/jiib/jnucenter/mvvm/utils/PlaceUtil.kt#L45)
+- :pushpin: [CustomBallonAdapter 클래스 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/1677af84a658640d6c11373334e2ae9a8a7d0452/app/src/main/java/com/jiib/jnucenter/mvvm/feature/place/PlaceMapFragment.kt#L90)
+- :pushpin: [유틸클래스 getDistance 함수 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/1677af84a658640d6c11373334e2ae9a8a7d0452/app/src/main/java/com/jiib/jnucenter/mvvm/utils/PlaceUtil.kt#L18)
+- :pushpin: [유틸클래스 getTimeByDistance 함수 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/1677af84a658640d6c11373334e2ae9a8a7d0452/app/src/main/java/com/jiib/jnucenter/mvvm/utils/PlaceUtil.kt#L46)
  
 </br>
 </br>
@@ -303,7 +303,7 @@
 </br>
 <img src="https://user-images.githubusercontent.com/82270774/147819021-4a56d57c-4657-4e28-abe2-0d527a60a160.PNG" width="90%"/>
 
-- :pushpin: [GoogleLogin 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/5dd519ef0bca2f86652bdf3540081dde87648d9a/app/src/main/java/com/jiib/jnucenter/mvvm/repository/network/google/GoogleLogin.kt#L21)
+- :pushpin: [GoogleLogin 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/6d32337f6419ea221f2bcbdbc948de67d72a7d44/app/src/main/java/com/jiib/jnucenter/mvvm/repository/network/google/GoogleLogin.kt#L24)
 
 </br>
 </div>
@@ -439,7 +439,7 @@
 </br>
 
 ### 개선된 코드 
-- :pushpin: [커스텀뷰 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/5dd519ef0bca2f86652bdf3540081dde87648d9a/app/src/main/java/com/jiib/jnucenter/mvvm/feature/main/CustomIconTitle.kt#L13)
+- :pushpin: [커스텀뷰 코드 확인](https://github.com/millionswillnd/JNUCenter/blob/6d32337f6419ea221f2bcbdbc948de67d72a7d44/app/src/main/java/com/jiib/jnucenter/mvvm/feature/main/CustomIconTitle.kt#L16)
 </div>
 </details>
 
@@ -623,7 +623,7 @@
 
 > - 특히 String 리소스 등 위의 항목들보다 중요한 경우도 있지만 분량상 축약했습니다. 전부 다 크게 반성해야 할 부분입니다.   
 > - DIFF_UTIL을 학습하지 않고 쓴 점 / 무분별한 notifyDataSetChanged의 사용 / 체계적이지 않은 구글 플랫폼 관리 / suspend 키워드의 통일되지 않은 사용 
-> - 주석의 내용이 통일적이지 않은 점 + 안써도 될 부분도 굳이 쓴 점  / 유효성 체크 미숙 / 초중반부의 깃헙커밋 메시지의 가벼움 / 정해지지 않은 테스트 과정 
+> - 주석의 내용이 통일적이지 않은 점 + 안써도 될 부분도 굳이 쓴 점  / 유효성 체크 미비 / 초중반부의 깃헙커밋 메시지의 가벼움 / 정해지지 않은 테스트 과정 
 > - String 리소스를 이용하지 않은 점 / 테스트시에만 쓰고 지운 로그들    
   
 </br>
@@ -631,24 +631,13 @@
 
 </br>
 
-## 7. 프로젝트 간단 리뷰 
+## 7. 프로젝트 리뷰 
 
 </br>
 
->   개인적으로는 MVVM 패턴을 본격적으로 적용시켜보고, 서버도 배포해보며 </br>
->   서버 개발자들이 무엇을 하는지 겪어보기도 하는 등 저에게 많은 배움이 </br>
->   있는 프로젝트였습니다. 안드로이드에선 코드 결합도가 내려간다는 것이 </br>
->   얼마나 큰 이점을 가져다 주는지 체감했습니다. 특히 분량상 더욱 복잡 함에도 </br> 
->   이전에 출시한 메모앱에 비해 약 2달이나 빨리 마무리를 할 수 있어 좋았습니다.  
+[노션 링크](https://unexpected-train-8e4.notion.site/4be5c576a4674b0f9e22ba7ac1dfa60c)
 
 </br>
 
->  하지만 앞에서도 언급했듯이 아쉬운 기획과, 언더바가 있는 변수 네이밍 등의 굵직한 </br>
->  문제점들을 안고 있어서 저에게 많은 반성점을 안겨주기도 했습니다. 대체적으로 <b>코딩 </br>
->  할 시 저의 꼼꼼함과 타인과 협업하는 관점에서 보완해야될 부분들</b>이 상당히 보였습니다. </br>
->  <b>단순히 어떤걸 학습 하고 적용 시킨다고 개발자로서 성장의 전부가 아니라는 점</b>을 철저</br>
-> 히 깨닫았습니다. 
 
-</br>
-
-> 반드시 부족한 부분을 보완해서 다음엔 더욱 좋은 코드를 만들고 싶습니다. 
+## 포트폴리오를 읽어주셔서 감사합니다. 
