@@ -60,7 +60,7 @@
 
 ## 3. 서비스 전체 흐름
 
-<img src="https://user-images.githubusercontent.com/82270774/147848905-19031570-70e0-430c-91c5-80d857cd7a4b.PNG" width="100%"/>
+<img src="https://user-images.githubusercontent.com/82270774/147865585-379040e1-cfe8-4252-bd85-70018fb8efa5.PNG" width="100%"/>
 
 
 
