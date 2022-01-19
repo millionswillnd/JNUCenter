@@ -61,7 +61,7 @@ class PlaceActivity : AppCompatActivity(), FragListener {
             override fun onQueryTextChange(newText: String?): Boolean {
                 // MapFragment에서 검색하는 경우, 다시 SearchFragment로 전환
                 if (map_flag == true){
-                    changeFragment("search")
+                    changeFragment(getString(R.string.search))
                     map_flag = false
                 }
 
@@ -132,7 +132,7 @@ class PlaceActivity : AppCompatActivity(), FragListener {
 
     // map 플래그가 넘어오면 PlaceMapFragment, 그 외는 PlaceSearchFragment
     override fun changeFragment(frag_name: String) {
-        if (frag_name == "map"){
+        if (frag_name == getString(R.string.map)){
             commitFragment(kakaomap_fragment)
             map_flag = true
         }

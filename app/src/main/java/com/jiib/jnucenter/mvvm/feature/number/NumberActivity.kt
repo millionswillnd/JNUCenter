@@ -80,7 +80,7 @@ class NumberActivity : AppCompatActivity() {
 
 
         // 메인액티비티에서 넘어온 검색 쿼리로 초기 화면을 설정한다
-        binding.numberSearchView.setQuery(intent.getStringExtra("query"), true)
+        binding.numberSearchView.setQuery(intent.getStringExtra(getString(R.string.query)), true)
     }
 
     override fun onRestart() {

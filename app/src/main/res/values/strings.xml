@@ -1,5 +1,41 @@
 <resources>
+    <!-- 앱 기본 정보 -->
     <string name="app_name">JNUCenter</string>
+
+    <!-- api key -->
     <string name="kakao_app_key">d69971c296a2a9bc402eb2ed6eebc501</string>
     <string name="google_ad_key">ca-app-pub-3958688591357712~6987190618</string>
+
+    <!-- 기타 문자열 리소스 -->
+    <string name="setting_completed_message">설정이 완료됐습니다</string>
+    <string name="title">title</string>
+    <string name="body">body</string>
+    <string name="menu">메뉴</string>
+    <string name="scholarship">장학</string>
+    <string name="query">query</string>
+    <string name="search">search</string>
+    <string name="map">map</string>
+    
+    <!-- 녹음 관련 -->
+    <string name="delete_message">삭제할 아이템을 골라주세요!</string>
+    <string name="deleted_message">성공적으로 삭제되었습니다!</string>
+    <string name="record_dir">recordDir</string>
+    <string name="recorded_message">녹음을 저장했습니다!</string>
+    <string name="upload_message">업로드할 녹음을 골라주세요</string>
+    <string name="uploaded_message">구글 드라이브 업로드가 완료되었습니다</string>
+    <string name="record_extension">audio/x-aac</string>
+    <string name="file_delete">파일 삭제 :</string>
+
+    <!-- room db column names -->
+    <string name="record_title">record_title</string>
+    <string name="record_time">record_time</string>
+    <string name="record_url">record_url</string>
+
+    <!-- retrofit 공통 쿼리명-->
+    <string name="user_id">user_id</string>
+
+    <!-- alarm retrofit 관련 -->
+    <string name=""></string>
+
+
 </resources>

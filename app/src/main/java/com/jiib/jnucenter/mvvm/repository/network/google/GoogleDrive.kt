@@ -49,7 +49,7 @@ class GoogleDrive {
                     // 구글드라이브에 올라가는 파일 형식 세팅
                     val gfile = com.google.api.services.drive.model.File()
                     gfile.name = record_file.name
-                    val file_content = FileContent("audio/x-aac", record_file)
+                    val file_content = FileContent(context.getString(R.string.record_extension), record_file)
                     google_drive_service.Files().create(gfile, file_content).execute()
                 } catch (e: Exception){
                     e.printStackTrace()

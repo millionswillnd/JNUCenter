@@ -20,17 +20,17 @@ class MainRepository {
     private val weather_util = WeatherUtil()
 
     // 날씨 정보
-    val weather_description : MutableLiveData<String> = MutableLiveData("none")
-    val weather_temperature : MutableLiveData<String> = MutableLiveData("-")
+    val weather_description : MutableLiveData<String> = MutableLiveData("")
+    val weather_temperature : MutableLiveData<String> = MutableLiveData("")
 
     // 현재 날짜
-    val now_date : MutableLiveData<String> = MutableLiveData("0")
+    val now_date : MutableLiveData<String> = MutableLiveData("")
 
     // 날씨 아이콘 정보
-    val weather_icon_info : MutableLiveData<String> = MutableLiveData("0")
+    val weather_icon_info : MutableLiveData<String> = MutableLiveData("")
 
     // 온도에 따른 옷 추천
-    val recommand_wear : MutableLiveData<String> = MutableLiveData("none")
+    val recommand_wear : MutableLiveData<String> = MutableLiveData("")
 
     // 뉴스 title, url 6쌍 (순서)
     val news_list : MutableLiveData<LinkedHashMap<String, String>> = MutableLiveData();

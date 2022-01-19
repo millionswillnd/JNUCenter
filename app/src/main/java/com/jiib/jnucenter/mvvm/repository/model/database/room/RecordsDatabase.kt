@@ -13,7 +13,6 @@ import androidx.room.RoomDatabase
 abstract class RecordsDatabase : RoomDatabase() {
     abstract fun recordsDao() : RecordsDao
 
-    // 싱글턴 패턴으로 구현 (근데 굳이 record에서만 접근하는데 필요가..?)
     companion object {
         private var instance: RecordsDatabase? = null
 

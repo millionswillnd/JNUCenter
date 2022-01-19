@@ -112,7 +112,7 @@ class RecordActivity : AppCompatActivity() {
         binding.recordSaveButton.setOnClickListener {
             // 체크 갯수가 0인 경우
             if (check_list!!.isEmpty()){
-                Toast.makeText(this, "삭제할 아이템을 골라주세요!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.delete_message), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -126,7 +126,7 @@ class RecordActivity : AppCompatActivity() {
 
                 withContext(Dispatchers.Main){
                     job.join()
-                    Toast.makeText(this@RecordActivity, "성공적으로 삭제되었습니다!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@RecordActivity, getString(R.string.deleted_message), Toast.LENGTH_LONG).show()
                     launch(Dispatchers.IO) {
                         viewmodel.getAllRecords()
                     }
@@ -135,7 +135,7 @@ class RecordActivity : AppCompatActivity() {
         }
 
         // 녹음파일을 저장할 내부저장소 파일 경로
-        val directory = ContextWrapper(this).getDir("recordDir", Context.MODE_PRIVATE)
+        val directory = ContextWrapper(this).getDir(getString(R.string.record_dir), Context.MODE_PRIVATE)
 
         // 녹음 권한 요청
         when {
@@ -225,7 +225,7 @@ class RecordActivity : AppCompatActivity() {
                                     dismiss()
                                     Toast.makeText(
                                         this@RecordActivity
-                                        , "녹음을 저장했습니다!"
+                                        , getString(R.string.recorded_message)
                                         , Toast.LENGTH_LONG)
                                         .show()
                                 }
@@ -259,7 +259,7 @@ class RecordActivity : AppCompatActivity() {
                     viewmodel.getAllRecords()
                     if (check_list?.isEmpty()!!){
                         withContext(Dispatchers.Main){
-                            Toast.makeText(this@RecordActivity, "업로드할 녹음을 골라주세요", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@RecordActivity, getString(R.string.upload_message), Toast.LENGTH_SHORT).show()
                         }
                     }
                     else {
@@ -271,7 +271,7 @@ class RecordActivity : AppCompatActivity() {
 
                         withContext(Dispatchers.Main){
                             job.join()
-                            Toast.makeText(this@RecordActivity, "구글 드라이브 업로드가 완료되었습니다", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@RecordActivity, getString(R.string.upload_message), Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
@@ -294,7 +294,7 @@ class RecordActivity : AppCompatActivity() {
                     CoroutineScope(Dispatchers.IO).launch {
                         if (check_list?.isEmpty()!!){
                             withContext(Dispatchers.Main){
-                                Toast.makeText(this@RecordActivity, "업로드할 녹음을 골라주세요", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@RecordActivity, getString(R.string.upload_message), Toast.LENGTH_SHORT).show()
                             }
                         }
                         else {
@@ -306,7 +306,7 @@ class RecordActivity : AppCompatActivity() {
 
                             withContext(Dispatchers.Main){
                                 job.join()
-                                Toast.makeText(this@RecordActivity, "구글 드라이브 업로드가 완료되었습니다", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@RecordActivity, getString(R.string.uploaded_message), Toast.LENGTH_SHORT).show()
                             }
                         }
                 }

@@ -108,7 +108,7 @@ class AlarmActivity : AppCompatActivity() {
 
                 withContext(Dispatchers.Main){
                     job.join()
-                    Toast.makeText(this@AlarmActivity, "설정이 완료됐습니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@AlarmActivity, getString(R.string.setting_completed_message), Toast.LENGTH_SHORT).show()
                 }
             }
         }

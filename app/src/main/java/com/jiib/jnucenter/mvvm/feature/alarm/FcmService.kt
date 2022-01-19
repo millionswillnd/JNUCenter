@@ -35,18 +35,18 @@ class FcmService : FirebaseMessagingService() {
 
         // notification 알람 커스텀뷰
         val content_view = RemoteViews(packageName, R.layout.fcm_custom_noti)
-        content_view.setTextViewText(R.id.fcm_title_tv, p0.data.get("title"))
-        content_view.setTextViewText(R.id.fcm_body_tv, p0.data.get("body"))
+        content_view.setTextViewText(R.id.fcm_title_tv, p0.data.get(getString(R.string.title)))
+        content_view.setTextViewText(R.id.fcm_body_tv, p0.data.get(getString(R.string.body)))
 
         // 알람 클릭시 강의 기한 액티비티 or 학식 액티비티로 이동
         // 학식인 경우
-        if(p0.data.get("title")!!.contains("메뉴")){
+        if(p0.data.get(getString(R.string.title))!!.contains(getString(R.string.menu))){
             intent = Intent(applicationContext, FoodActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             content_view.setImageViewResource(R.id.fcm_icon, R.drawable.main_icon_color_food)
         }
         // 장학인 경우
-        else if (p0.data.get("title")!!.contains("장학")){
+        else if (p0.data.get(getString(R.string.title))!!.contains(getString(R.string.scholarship))){
             intent = Intent(applicationContext, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             content_view.setImageViewResource(R.id.fcm_icon, R.drawable.fcm_icon_scholarship)

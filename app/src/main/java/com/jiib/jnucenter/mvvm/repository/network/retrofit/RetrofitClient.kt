@@ -18,11 +18,12 @@ class RetrofitClient {
         private var instance : Retrofit? = null
         // aws 서버 도메인 주소
         private const val BASE_URL = "https://jcent16.site"
-
+        
         // 로깅용 인터셉터
         val interceptor = HttpLoggingInterceptor().apply{
             level = HttpLoggingInterceptor.Level.BODY
         }
+
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .connectTimeout(15, TimeUnit.SECONDS)   // timeout 설정
