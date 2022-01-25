@@ -655,7 +655,7 @@
 </br>
 
 > - DIFF_UTIL을 학습하지 않고 쓴 점 _([학습 노션 링크](https://unexpected-train-8e4.notion.site/DiffUtil-3c28b163a3784efcb4d308f11e06902a))_ 
-> - 체계적이지 않은 구글 플랫폼 관리 
+> - 체계적이지 않은 구글 플랫폼 관리 _(1.25 Google Cloud, Firebase 콘솔 정리 완료)_
 > - suspend 키워드의 통일되지 않은 사용 
 > - 주석의 내용이 통일적이지 않은 점 + 안써도 될 부분도 굳이 쓴 점 _(~1.23 개선 완료)_  
 > - 유효성 체크 미비 
