@@ -11,5 +11,5 @@ interface FoodApi {
 
     // 식당별 학식 리스트를 리퀘스트
     @GET("/food/list")
-    fun getFoodList(): Call<List<FoodDTO>>
+    suspend fun getFoodList(): Call<List<FoodDTO>>
 }

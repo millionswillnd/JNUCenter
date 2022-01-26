@@ -39,7 +39,7 @@ class MainRepository {
 
 
     // 날씨 api 요청
-    fun getWeathers(){
+    suspend fun getWeathers(){
         val client : Retrofit = retrofit_client.getInstance()
         val response : Call<WeatherDTO> = client.create(WeatherApi::class.java).requestWeatherInfo()
         response.enqueue(object : Callback<WeatherDTO>{
@@ -58,25 +58,25 @@ class MainRepository {
     }
 
     // 날짜 구하기
-    fun getDate(){
+    suspend fun getDate(){
         val date = weather_util.getCurrentDate()
         now_date.postValue(date)
     }
 
     // 날씨 아이콘 정보 구하기
-    fun getWeatherIconInfo(){
+    suspend fun getWeatherIconInfo(){
         val icon_info = weather_util.getWeatherIconInfo(weather_description.value!!)
         weather_icon_info.postValue(icon_info)
     }
 
     // 온도에 따른 추천 옷 구하기
-    fun getRecommendedWear(){
+    suspend fun getRecommendedWear(){
         val rec_wear = weather_util.getRecommendedWear(weather_temperature.value!!)
         recommand_wear.postValue(rec_wear)
     }
 
     // 신문 title, url api
-    fun getNews(){
+    suspend fun getNews(){
         val client : Retrofit = retrofit_client.getInstance()
         val response : Call<NewsDTO> = client.create(NewsApi::class.java).requestNewsInfo()
         response.enqueue(object : Callback<NewsDTO>{

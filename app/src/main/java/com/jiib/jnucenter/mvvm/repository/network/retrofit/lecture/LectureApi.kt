@@ -11,5 +11,5 @@ interface LectureApi {
 
     // 강의, 과제, 퀴즈 기한들 리퀘스트
     @GET("/lecture/date")
-    fun requestLectureDate(): Call<List<LectureDTO>>
+    suspend fun requestLectureDate(): Call<List<LectureDTO>>
 }

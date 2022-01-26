@@ -21,7 +21,7 @@ class FoodViewModel : ViewModel() {
 
 
     // repository에 food api를 요청
-    fun getFoodList(){
+    suspend fun getFoodList(){
         repository.getFoodList()
     }
 

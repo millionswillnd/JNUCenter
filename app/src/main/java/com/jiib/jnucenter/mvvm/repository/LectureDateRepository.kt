@@ -17,7 +17,7 @@ class LectureDateRepository {
 
 
     // 강의의 과제, 싸강, 퀴즈 등의 title과 기한을 얻어온다
-    fun getLectureDates() : List<LectureDTO>?{
+    suspend fun getLectureDates() : List<LectureDTO>?{
 
         var list : List<LectureDTO>? = null
         val response : Call<List<LectureDTO>> = lecture_service.getLectureDate()

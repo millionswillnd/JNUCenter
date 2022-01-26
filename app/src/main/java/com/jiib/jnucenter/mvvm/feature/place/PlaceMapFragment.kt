@@ -13,6 +13,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.jiib.jnucenter.R
 import com.jiib.jnucenter.databinding.PlaceKakaomapFragmentBinding
 import com.jiib.jnucenter.mvvm.utils.PlaceUtil
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import net.daum.android.map.MapView
 import net.daum.mf.map.api.CalloutBalloonAdapter
 import net.daum.mf.map.api.MapPOIItem
@@ -52,7 +55,7 @@ class PlaceMapFragment : Fragment() {
         )
 
         // 현재 위치 위경도 구하기
-        place_viewmodel.getCurrentLocation()
+        CoroutineScope(Dispatchers.IO).launch { place_viewmodel.getCurrentLocation() }
 
         // 커스텀 말풍선 어댑터 세팅
         binding?.kakaoMapview?.setCalloutBalloonAdapter(CustomBalloonAdapter(layoutInflater, place_viewmodel))

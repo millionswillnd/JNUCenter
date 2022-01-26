@@ -18,7 +18,7 @@ class BoardViewModel : ViewModel() {
 
 
     // 게시판 글 리스트 api 요청
-    fun getBoardList(){
+    suspend fun getBoardList(){
         repositry.getBoardList()
     }
 

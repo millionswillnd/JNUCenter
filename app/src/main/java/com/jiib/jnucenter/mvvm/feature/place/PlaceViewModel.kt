@@ -35,12 +35,12 @@ class PlaceViewModel (application: Application) : AndroidViewModel(application) 
 
 
     // 검색어로 장소 찾기 리파지토리 api 요청
-    fun getPlacesByName(name:String) : Flow<PagingData<PlaceDTO>> {
+    suspend fun getPlacesByName(name:String) : Flow<PagingData<PlaceDTO>> {
         return repository.getPlacesByName(name).cachedIn(viewModelScope)
     }
 
     // 전체 장소 목록 리파지토리 api 요청
-    fun getPlaces() : Flow<PagingData<PlaceDTO>> {
+    suspend fun getPlaces() : Flow<PagingData<PlaceDTO>> {
         return repository.getPlaces().cachedIn(viewModelScope)
     }
 

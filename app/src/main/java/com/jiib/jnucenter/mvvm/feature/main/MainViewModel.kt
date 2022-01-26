@@ -36,7 +36,7 @@ class MainViewModel : ViewModel() {
 
 
     // 날씨 정보값 요청
-    fun getWeathers() {
+    suspend fun getWeathers() {
         try{
             mainRepository.getWeathers()
         } catch (e:Exception){
@@ -45,22 +45,22 @@ class MainViewModel : ViewModel() {
     }
 
     // 날짜 요청
-    fun getDate(){
+    suspend fun getDate(){
         mainRepository.getDate()
     }
 
     // 날씨 아이콘 정보 요청
-    fun getWeatherIconInfo(){
+    suspend fun getWeatherIconInfo(){
         mainRepository.getWeatherIconInfo()
     }
 
     // 온도에 따른 추천 옷 정보 요청
-    fun getRecommendedWear(){
+    suspend fun getRecommendedWear(){
         mainRepository.getRecommendedWear()
     }
 
     // 신문 title, url 정보 요청
-    fun getNewsList(){
+    suspend fun getNewsList(){
         mainRepository.getNews()
     }
 

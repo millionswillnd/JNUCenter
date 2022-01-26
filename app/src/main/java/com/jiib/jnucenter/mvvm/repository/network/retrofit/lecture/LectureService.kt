@@ -12,7 +12,7 @@ class LectureService {
 
     private val retrofit_client = RetrofitClient
 
-    fun getLectureDate() : Call<List<LectureDTO>> {
+    suspend fun getLectureDate() : Call<List<LectureDTO>> {
         val client : Retrofit = retrofit_client.getInstance()
         var lectures : List<LectureDTO>? = null
         val response : Call<List<LectureDTO>> = client.create(LectureApi::class.java).requestLectureDate()
