@@ -10,5 +10,5 @@ interface WeatherApi {
 
     // 날씨 정보를 서버에서 얻어온다
     @GET("/weather")
-    fun requestWeatherInfo() : Call<WeatherDTO>
+    suspend fun requestWeatherInfo() : Call<WeatherDTO>
 }

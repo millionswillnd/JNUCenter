@@ -34,18 +34,18 @@ class RecordRepository(application: Application) {
     val record_list : MutableLiveData<List<Records>> = MutableLiveData()
 
     // room db의 Record 테이블에 녹음 파일을 저장
-    fun saveRecord(title: String, time: String, url: String){
+    suspend fun saveRecord(title: String, time: String, url: String){
         record_dao.insertRecord(null, title, time, url)
     }
 
     // 모든 녹음파일을 select
-    fun getAllRecords(){
+    suspend fun getAllRecords(){
         val list = record_dao.getAllRecords()
         record_list.postValue(list)
     }
 
     // 특정 녹음파일을 db와 내부저장소에서 삭제한다
-    fun deleteRecord(id:Int){
+    suspend fun deleteRecord(id:Int){
         var path : String = ""
         // 둘의 순서 주의
         CoroutineScope(Dispatchers.IO).launch {
@@ -78,7 +78,7 @@ class RecordRepository(application: Application) {
     }
 
     // 구글 드라이브에 파일 업로드
-    fun uploadFileToGDrive(context: Context, id: Int){
+    suspend fun uploadFileToGDrive(context: Context, id: Int){
         // 특정 id를 가진 컬럼의 path
         val path = record_dao.getRecordPath(id)
         google_drive.uploadFileToGDrive(context, path)

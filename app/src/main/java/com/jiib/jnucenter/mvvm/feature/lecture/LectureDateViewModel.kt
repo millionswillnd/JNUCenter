@@ -17,7 +17,7 @@ class LectureDateViewModel : ViewModel() {
         get() = lecture_repository.lecture_date_list
 
     // 강의 기한을 담은 리스트 api를 리파지토리에 요청
-    fun getLectureDates() : List<LectureDTO>?{
+    suspend fun getLectureDates() : List<LectureDTO>?{
         return lecture_repository.getLectureDates()
     }
 }

@@ -10,5 +10,5 @@ import retrofit2.http.GET
 interface BoardApi {
 
     @GET("/board/list")
-    fun getBoardList(): Call<List<BoardDTO>>
+    suspend fun getBoardList(): Call<List<BoardDTO>>
 }

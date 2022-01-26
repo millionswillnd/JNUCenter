@@ -12,14 +12,14 @@ interface PlaceApi {
 
     // 특정 글자를 포함한 건물 리스트 리퀘스트
     @GET("/place/search/list")
-    fun getPlacesByName(
+    suspend fun getPlacesByName(
         @Query("name") name: String,
         @Query("page_index") page_index : Int
     ) : Call<List<PlaceDTO>>
 
     // 페이지에 해당하는 장소 리스트 리퀘스트
     @GET("/place/list")
-    fun getPlaces(
+    suspend fun getPlaces(
         @Query("page_index") page_index : Int
     ) : Call<List<PlaceDTO>>
 }

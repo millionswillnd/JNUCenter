@@ -21,15 +21,15 @@ class RecordViewModel(application: Application) : AndroidViewModel(application) 
     val record_list : LiveData<List<Records>>
         get() = repository.record_list
 
-    fun saveRecord(title:String, time:String, url:String){
+    suspend fun saveRecord(title:String, time:String, url:String){
         repository.saveRecord(title, time, url)
     }
 
-    fun getAllRecords(){
+    suspend fun getAllRecords(){
         repository.getAllRecords()
     }
 
-    fun deleteRecord(id:Int){
+    suspend fun deleteRecord(id:Int){
         repository.deleteRecord(id)
     }
 
@@ -44,7 +44,7 @@ class RecordViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     // 구글드라이브 파일 업로드
-    fun uploadFileToGDrive(context: Context, id: Int){
+    suspend fun uploadFileToGDrive(context: Context, id: Int){
         repository.uploadFileToGDrive(context, id)
     }
 

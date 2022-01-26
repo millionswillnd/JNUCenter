@@ -19,7 +19,7 @@ class BoardRepository {
     // 각 게시판의 글 리스트와 url 링크를 담은 LiveData
     val board_list = MutableLiveData<List<BoardDTO>>()
 
-    fun getBoardList(){
+    suspend fun getBoardList(){
         val response = board_service.getBoardList()
         response.enqueue(object : Callback<List<BoardDTO>>{
             override fun onResponse(

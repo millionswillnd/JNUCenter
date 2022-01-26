@@ -27,7 +27,7 @@ class FoodRepository {
     val now_date = MutableLiveData<String>(food_util.getNowDate())
 
     // 학식 식단을 받아오는 api
-    fun getFoodList(){
+    suspend fun getFoodList(){
         val response = food_service.getFoodList()
         response.enqueue(object : Callback<List<FoodDTO>>{
             override fun onResponse(call: Call<List<FoodDTO>>, response: Response<List<FoodDTO>>) {

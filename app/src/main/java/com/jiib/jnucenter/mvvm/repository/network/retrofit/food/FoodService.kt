@@ -13,7 +13,7 @@ class FoodService {
     private val retrofit_client = RetrofitClient
 
     // 모든 학식 정보 list를 가져온다
-    fun getFoodList() : Call<List<FoodDTO>> {
+    suspend fun getFoodList() : Call<List<FoodDTO>> {
         val client : Retrofit = retrofit_client.getInstance()
         val response = client.create(FoodApi::class.java).getFoodList()
         return response
